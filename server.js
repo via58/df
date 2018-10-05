@@ -42,6 +42,7 @@ for(var x = 0; x < numberofobjects; x++){
  );
 }
 var full={
+        "fulfillmentText": "This is a text response",
         "fulfillmentMessages": [
             {
               "card": {
@@ -56,7 +57,24 @@ var full={
                 ]
               }
             }
-          ]}
+          ],
+ "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "this is a simple response"
+            }
+          }
+        ]
+      }
+    }
+ }
+
+
+}
           
     return response.send(full);
 
