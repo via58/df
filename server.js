@@ -41,7 +41,22 @@ for(var x = 0; x < numberofobjects; x++){
     
  );
 }
-var full={"fulfillmentMessages": loop}
+var full={
+        "fulfillmentMessages": [
+            {
+              "card": {
+                "title": filteredList[0].shopname,
+                "subtitle": "sample title from service",
+                "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+                "buttons": [
+                  {
+                    "text": "button text",
+                    "postback": "https://assistant.google.com/"
+                  }
+                ]
+              }
+            }
+          ]}
           
     return response.send(full);
 
