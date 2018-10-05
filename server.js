@@ -58,53 +58,48 @@ var full={
           }
         }
       ],
-
-"data":{
-    "google":{
-        "expectUserResponse":true,
-        "noInputPrompts":[
-
-        ],
-        "richResponse":{
-            "items":[
-                {
-                    "simpleResponse":{
-                        "textToSpeech":"Welcome to this Basic Card",
-                        "displayText":"Welcome to this Basic Card"
-                    }
-                },
-                {
-                    "basicCard":{
-                        "buttons":[
-                            {
-                                "title":"Button Title",
-                                "openUrlAction":{
-                                    "url":"https://some.url"
+ "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items":[
+                    {
+                        "simpleResponse":{
+                            "textToSpeech":"Welcome to this Basic Card",
+                            "displayText":"Welcome to this Basic Card"
+                        }
+                    },
+                    {
+                        "basicCard":{
+                            "buttons":[
+                                {
+                                    "title":"Button Title",
+                                    "openUrlAction":{
+                                        "url":"https://some.url"
+                                    }
                                 }
-                            }
-                        ],
-                        "formattedText":"Some text",
-                        "image":{
-                            "url":"http://some_image.jpg",
-                            "accessibilityText":"Accessibility text describing the image"
-                        },
-                        "title":"Card Title"
+                            ],
+                            "formattedText":"Some text",
+                            "image":{
+                                "url":"http://some_image.jpg",
+                                "accessibilityText":"Accessibility text describing the image"
+                            },
+                            "title":"Card Title"
+                        }
                     }
-                }
-            ],
-            "suggestions":[
-                {
-                    "title":"Aléatoire"
-                },
-                {
-                    "title":"Top"
-                }
-            ]
-        }
-    
-}
-}
-}
+                ]
+      }
+    },
+    "facebook": {
+      "text": "Hello, Facebook!"
+    },
+    "slack": {
+      "text": "This is a text response for Slack."
+    }
+  }
+
+
+
           
     return response.send(full);
 
