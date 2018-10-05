@@ -2,7 +2,7 @@
   "name": "speedwayapi",
   "version": "1.0.0",
   "description": "api to get values for SpeedwayBot application'",
-  "main": "app.js",
+  "main": "server.js",
   "author": "vijay",
   "license": "ISC",
   "dependencies": {
