@@ -67,7 +67,7 @@ for(var x = 0; x < numberofobjects; x++){
       {
         "description": "Option One Description",
         "image": {
-          "url": "http://imageOneUrl.com"
+          "url": "http://imageOneUrl.com",
           "accessibilityText": "Image description for screen readers"
         },
         "optionInfo": {
@@ -82,7 +82,7 @@ for(var x = 0; x < numberofobjects; x++){
       {
         "description": "Option Two Description",
         "image": {
-          "url": "http://imageTwoUrl.com"
+          "url": "http://imageTwoUrl.com",
           "accessibilityText": "Image description for screen readers"
         },
         "optionInfo": {
