@@ -27,7 +27,18 @@ app.post('/shops',function(request,response){
         resourse:'simpleresponse'
       }
     
-    return response.json(resultObject);
+   var full={"fulfillmentText": "here the shops near you",
+      "fulfillmentMessages": [
+        {
+          "text": {
+            "text": [
+              "here the shops near you"
+            ]
+          }
+        }
+      ]}
+    return response.send(full);
+
 
 
  });
