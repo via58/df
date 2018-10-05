@@ -41,7 +41,8 @@ for(var x = 0; x < numberofobjects; x++){
     
  );
 }
-var full={
+
+ var full={
     "fulfillmentText": "This is a text response",
     "fulfillmentMessages": [
         {
@@ -98,6 +99,7 @@ var full={
     }
   }
 
+}
 
 
           
