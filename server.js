@@ -20,12 +20,14 @@ app.post('/shops',function(request,response){
     const filteredList = shops.NewYork.filter(function(title) {
         return title.shopname==shopname;
       });
-    
-    return response.json({
-        speech:filteredList.shopname,
-        displayText:filteredList.shopname,
+     
+      var resultObject={
+        speech:filteredList[0].shopname,
+        displayText:filteredList[0].shopname,
         resourse:'simpleresponse'
-    });
+      }
+    
+    return response.json(resultObject);
 
 
  });
