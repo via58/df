@@ -27,12 +27,13 @@ app.post('/shops',function(request,response){
         resourse:'simpleresponse'
       }
     
-   var full={"fulfillmentText": "here the shops near you",
+    var full={
+      "fulfillmentText": filteredList[0].shopname,
       "fulfillmentMessages": [
         {
           "text": {
             "text": [
-              "here the shops near you"
+                filteredList[0].shopname
             ]
           }
         }
