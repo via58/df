@@ -64,6 +64,12 @@ for(var x = 0; x < numberofobjects; x++){
       "expectUserResponse": true,
       "richResponse": {
         "items": [
+         {
+                        "simpleResponse":{
+                            "textToSpeech":"Welcome to this Basic Card",
+                            "displayText":"Welcome to this Basic Card"
+                        }
+                    },
       {
         "description": "Option One Description",
         "image": {
