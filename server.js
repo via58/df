@@ -27,17 +27,22 @@ app.post('/shops',function(request,response){
         resourse:'simpleresponse'
       }
     
-    var full={
-      "fulfillmentText": filteredList[0].shopname,
-      "fulfillmentMessages": [
-        {
-          "text": {
-            "text": [
-                filteredList[0].shopname
-            ]
-          }
-        }
-      ]}
+  var full={
+        "fulfillmentMessages": [
+            {
+              "card": {
+                "title": filteredList[0].shopname,
+                "subtitle": "sample title from service",
+                "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+                "buttons": [
+                  {
+                    "text": "button text",
+                    "postback": "https://assistant.google.com/"
+                  }
+                ]
+              }
+            }
+          ]}
     return response.send(full);
 
 
