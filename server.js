@@ -40,9 +40,6 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
 var full = {
-        "fulfillmentText": "here the list of shops",
-        "fulfillmentMessages": [
-        ],
         "payload": {
             "google": {
                 "conversationToken": "",
@@ -84,7 +81,43 @@ var full = {
                 ]
             },
             "facebook": {
-                "text": "Hello, Facebook!"
+                "conversationToken": "",
+                "expectUserResponse": true,
+                "expectedInputs": [
+                    {
+                        "inputPrompt": {
+                            "richInitialPrompt": {
+                                "items": [
+                                    {
+                                        "simpleResponse": {
+                                            "textToSpeech": "Howdy! I can tell you fun facts about almost any number like 0, 42, or 100. What number do you have in mind?",
+                                            "displayText": "Howdy! I can tell you fun facts about almost any number. What number do you have in mind?"
+                                        }
+                                    }
+                                ],
+                                "suggestions": [
+                                    {
+                                        "title": "0"
+                                    },
+                                    {
+                                        "title": "42"
+                                    },
+                                    {
+                                        "title": "100"
+                                    },
+                                    {
+                                        "title": "Never mind"
+                                    }
+                                ]
+                            }
+                        },
+                        "possibleIntents": [
+                            {
+                                "intent": "actions.intent.TEXT"
+                            }
+                        ]
+                    }
+                ]
             }
         }
 
