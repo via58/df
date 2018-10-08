@@ -28,22 +28,18 @@ app.post('/shops',function(request,response){
 var loop = [];
 
 for(var x = 0; x < numberofobjects; x++){
- loop.push(
-    {
+ loop.push({
         "card": {
           "title": all[x].shopname,
           "address": all[x].address,
           "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png"
-          
         }
-    }
-      
-    
- );
+         });
 }
 
- var full={
-    "fulfillmentText": "This is a text response",
+   // basic card which working so far       
+var full={
+    "fulfillmentText": "here the list of shops",
     "fulfillmentMessages": [
         {
           "card": {
@@ -61,48 +57,34 @@ for(var x = 0; x < numberofobjects; x++){
       ],
  "payload": {
     "google": {
-     "expectUserResponse": true,
+      "expectUserResponse": true,
       "richResponse": {
-        "items": [
-         {
+        "items":[
+                    {
                         "simpleResponse":{
                             "textToSpeech":"Welcome to this Basic Card",
                             "displayText":"Welcome to this Basic Card"
                         }
                     },
-      {
-        "description": "Option One Description",
-        "image": {
-          "url": "http://imageOneUrl.com",
-          "accessibilityText": "Image description for screen readers"
-        },
-        "optionInfo": {
-          "key": "itemOne",
-          "synonyms": [
-            "thing one",
-            "object one"
-          ]
-        },
-        "title": "Option One Title"
-      },
-      {
-        "description": "Option Two Description",
-        "image": {
-          "url": "http://imageTwoUrl.com",
-          "accessibilityText": "Image description for screen readers"
-        },
-        "optionInfo": {
-          "key": "itemTwo",
-          "synonyms": [
-            "thing two",
-            "object two"
-          ]
-        },
-        "title": "Option Two Title"
-      }
-    ],
-    "platform": "google",
-    "type": "carousel_card"
+                    {
+                        "basicCard":{
+                            "buttons":[
+                                {
+                                    "title":"Button Title",
+                                    "openUrlAction":{
+                                        "url":"https://some.url"
+                                    }
+                                }
+                            ],
+                            "formattedText":"Some text",
+                            "image":{
+                                "url":"http://some_image.jpg",
+                                "accessibilityText":"Accessibility text describing the image"
+                            },
+                            "title":"Card Title"
+                        }
+                    }
+                ]
       }
     },
     "facebook": {
@@ -114,14 +96,11 @@ for(var x = 0; x < numberofobjects; x++){
   }
 
 }
-
+ 
 
 
           
-    return response.send(full);
-
-
-
+return response.send(full);
  });
     
 
