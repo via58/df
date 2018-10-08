@@ -40,91 +40,53 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
 var full = {
-        "fulfillmentText": "here the list of shops",
-        "fulfillmentMessages": [
-        ],
-        "payload": {
-            "google": {
-                "conversationToken": "[\"_actions_on_google_\"]",
-                "expectUserResponse": true,
-                "expectedInputs": [
-                    {
-                        "inputPrompt": {
-                            "richInitialPrompt": {
-                                "items": [
-                                    {
-                                        "simpleResponse": {
-                                            "textToSpeech": "Howdy! I can tell you fun facts about almost any number like 0, 42, or 100. What number do you have in mind?",
-                                            "displayText": "Howdy! I can tell you fun facts about almost any number. What number do you have in mind?"
-                                        }
+  "fulfillmentText":"Shops near you ",
+  "fulfillmentMessages": [{"simpleResponse": {"textToSpeech": "vijay it is working"}}],
+  "source":"from webapi",
+  "payload":
+  {  
+    "google": {
+    "expectUserResponse": true,
+    "richResponse": {
+      "carouselSelect": {
+                            "items": [
+                                {
+                                    "optionInfo": {
+                                        "key": "MATH_AND_PRIME",
+                                        "synonyms": [
+                                            "math",
+                                            "math and prime",
+                                            "prime numbers",
+                                            "prime"
+                                        ]
+                                    },
+                                    "title": "Math & prime numbers",
+                                    "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
+                                    "image": {
+                                        "url": "http://example.com/math_and_prime.jpg",
+                                        "accessibilityText": "Math & prime numbers"
                                     }
-                                ],
-                                "suggestions": [
-                                    {
-                                        "title": "0"
+                                },
+                                {
+                                    "optionInfo": {
+                                        "key": "EGYPT",
+                                        "synonyms": [
+                                            "religion",
+                                            "egpyt",
+                                            "ancient egyptian"
+                                        ]
                                     },
-                                    {
-                                        "title": "42"
-                                    },
-                                    {
-                                        "title": "100"
-                                    },
-                                    {
-                                        "title": "Never mind"
+                                    "title": "Ancient Egyptian religion",
+                                    "description": "42 gods who ruled on the fate of the dead in the afterworld. Throughout the under…",
+                                    "image": {
+                                        "url": "http://example.com/egypt",
+                                        "accessibilityText": "Egypt"
                                     }
-                                ]
-                            }
-                        },
-                        "possibleIntents": [
-                            {
-                                "intent": "actions.intent.TEXT"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "facebook": {
-                "conversationToken": "",
-                "expectUserResponse": true,
-                "expectedInputs": [
-                    {
-                        "inputPrompt": {
-                            "richInitialPrompt": {
-                                "items": [
-                                    {
-                                        "simpleResponse": {
-                                            "textToSpeech": "Howdy! I can tell you fun facts about almost any number like 0, 42, or 100. What number do you have in mind?",
-                                            "displayText": "Howdy! I can tell you fun facts about almost any number. What number do you have in mind?"
-                                        }
-                                    }
-                                ],
-                                "suggestions": [
-                                    {
-                                        "title": "0"
-                                    },
-                                    {
-                                        "title": "42"
-                                    },
-                                    {
-                                        "title": "100"
-                                    },
-                                    {
-                                        "title": "Never mind"
-                                    }
-                                ]
-                            }
-                        },
-                        "possibleIntents": [
-                            {
-                                "intent": "actions.intent.TEXT"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-
+                                }
     }
+  }
+}
+}
  
 
 //////////////
