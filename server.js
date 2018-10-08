@@ -56,7 +56,7 @@ var full={
       ],
  "payload": {
     "google": {
-      "expectUserResponse": true,
+      "expectUserResponse": false,
       "expectedInputs": [
         {
             "inputPrompt": {
@@ -69,7 +69,6 @@ var full={
             },
             "possibleIntents": [
                 {
-                    "intent": "actions.intent.OPTION",
                     "inputValueData": {
                         "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                         "carouselSelect": {
