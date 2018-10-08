@@ -40,93 +40,67 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
  var full = {
-        "fulfillmentText": "here the list of shops",
-        "fulfillmentMessages": [
-            {
-                "card": {
-                    "title": filteredList[0].shopname,
-                    "subtitle": "sample title from service",
-                    "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-                    "buttons": [
-                        {
-                            "text": "button text",
-                            "postback": "https://assistant.google.com/"
-                        }
-                    ]
-                }
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "Simple Response"
             }
-        ],
-        "payload": {
-            "google": {
-                "expectUserResponse": true,
-                "richResponse": {
-                    "items": {
-                        "carouselSelect": {
-                            "items": [
-                                {
-                                    "optionInfo": {
-                                        "key": "MATH_AND_PRIME",
-                                        "synonyms": [
-                                            "math",
-                                            "math and prime",
-                                            "prime numbers",
-                                            "prime"
-                                        ]
-                                    },
-                                    "title": "Math & prime numbers",
-                                    "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
-                                    "image": {
-                                        "url": "http://example.com/math_and_prime.jpg",
-                                        "accessibilityText": "Math & prime numbers"
-                                    }
-                                },
-                                {
-                                    "optionInfo": {
-                                        "key": "EGYPT",
-                                        "synonyms": [
-                                            "religion",
-                                            "egpyt",
-                                            "ancient egyptian"
-                                        ]
-                                    },
-                                    "title": "Ancient Egyptian religion",
-                                    "description": "42 gods who ruled on the fate of the dead in the afterworld. Throughout the under…",
-                                    "image": {
-                                        "url": "http://example.com/egypt",
-                                        "accessibilityText": "Egypt"
-                                    }
-                                },
-                                {
-                                    "optionInfo": {
-                                        "key": "RECIPES",
-                                        "synonyms": [
-                                            "recipes",
-                                            "recipe",
-                                            "42 recipes"
-                                        ]
-                                    },
-                                    "title": "42 recipes with 42 ingredients",
-                                    "description": "Here's a beautifully simple recipe that's full of flavor! All you need is some ginger and…",
-                                    "image": {
-                                        "url": "http://example.com/recipe",
-                                        "accessibilityText": "Recipe"
-                                    }
-                                }
-                            ]
-                        }
-
+          },
+          {
+            "tableCard": {
+              "rows": [
+                {
+                  "cells": [
+                    {
+                      "text": "row 1 item 1"
+                    },
+                    {
+                      "text": "row 1 item 2"
+                    },
+                    {
+                      "text": "row 1 item 3"
                     }
+                  ],
+                  "dividerAfter": true
+                },
+                {
+                  "cells": [
+                    {
+                      "text": "row 2 item 1"
+                    },
+                    {
+                      "text": "row 2 item 2"
+                    },
+                    {
+                      "text": "row 2 item 3"
+                    }
+                  ],
+                  "dividerAfter": true
                 }
-            },
-            "facebook": {
-                "text": "Hello, Facebook!"
-            },
-            "slack": {
-                "text": "This is a text response for Slack."
+              ],
+              "columnProperties": [
+                {
+                  "header": "header 1"
+                },
+                {
+                  "header": "header 2"
+                },
+                {
+                  "header": "header 3"
+                }
+              ]
             }
-        }
-
+          }
+        ]
+      },
+      "userStorage": "{\"data\":{}}"
     }
+  }
+}
 
  
 
