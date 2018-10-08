@@ -38,6 +38,7 @@ for(var x = 0; x < numberofobjects; x++){
 }
  
 var full={
+ "fulfillmentText":"Here the list of shops"
     "fulfillmentMessages": [
         {
           "card": {
