@@ -39,29 +39,29 @@ for(var x = 0; x < numberofobjects; x++){
  
 ///////
  
- var full={
-    "fulfillmentText": "here the list of shops",
-    "fulfillmentMessages": [
-        {
-          "card": {
-            "title": filteredList[0].shopname,
-            "subtitle": "sample title from service",
-            "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-            "buttons": [
-              {
-                "text": "button text",
-                "postback": "https://assistant.google.com/"
-              }
-            ]
-          }
-        }
-      ],
- "payload": {
-    "google": {
-      "expectUserResponse": true,
-      "noInputPrompts":[],
-      "richResponse": {
-         "carouselSelect": {
+ var full = {
+        "fulfillmentText": "here the list of shops",
+        "fulfillmentMessages": [
+            {
+                "card": {
+                    "title": filteredList[0].shopname,
+                    "subtitle": "sample title from service",
+                    "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+                    "buttons": [
+                        {
+                            "text": "button text",
+                            "postback": "https://assistant.google.com/"
+                        }
+                    ]
+                }
+            }
+        ],
+        "payload": {
+            "google": {
+                "expectUserResponse": true,
+                "richResponse": {
+                    "items": {
+                        "carouselSelect": {
                             "items": [
                                 {
                                     "optionInfo": {
@@ -114,17 +114,20 @@ for(var x = 0; x < numberofobjects; x++){
                                 }
                             ]
                         }
-         
-    },
-    "facebook": {
-      "text": "Hello, Facebook!"
-    },
-    "slack": {
-      "text": "This is a text response for Slack."
-    }
-  }
 
-}
+                    }
+                }
+            },
+            "facebook": {
+                "text": "Hello, Facebook!"
+            },
+            "slack": {
+                "text": "This is a text response for Slack."
+            }
+        }
+
+    }
+
  
 
 //////////////
