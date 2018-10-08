@@ -61,80 +61,49 @@ for(var x = 0; x < numberofobjects; x++){
       ],
  "payload": {
     "google": {
-      "expectUserResponse": true,
-      "expectedInputs": [
-        {
-            "inputPrompt": {
-                "initialPrompts": [
-                    {
-                        "textToSpeech": "Alright! Here are a few things you can learn. Which sounds interesting?"
-                    }
-                ],
-                "noInputPrompts": []
-            },
-            "possibleIntents": [
-                {
-                    
-                    "inputValueData": {
-                        "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-                        "carouselSelect": {
-                            "items": [
-                                {
-                                    "optionInfo": {
-                                        "key": "MATH_AND_PRIME",
-                                        "synonyms": [
-                                            "math",
-                                            "math and prime",
-                                            "prime numbers",
-                                            "prime"
-                                        ]
-                                    },
-                                    "title": "Math & prime numbers",
-                                    "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
-                                    "image": {
-                                        "url": "http://example.com/math_and_prime.jpg",
-                                        "accessibilityText": "Math & prime numbers"
-                                    }
-                                },
-                                {
-                                    "optionInfo": {
-                                        "key": "EGYPT",
-                                        "synonyms": [
-                                            "religion",
-                                            "egpyt",
-                                            "ancient egyptian"
-                                        ]
-                                    },
-                                    "title": "Ancient Egyptian religion",
-                                    "description": "42 gods who ruled on the fate of the dead in the afterworld. Throughout the under…",
-                                    "image": {
-                                        "url": "http://example.com/egypt",
-                                        "accessibilityText": "Egypt"
-                                    }
-                                },
-                                {
-                                    "optionInfo": {
-                                        "key": "RECIPES",
-                                        "synonyms": [
-                                            "recipes",
-                                            "recipe",
-                                            "42 recipes"
-                                        ]
-                                    },
-                                    "title": "42 recipes with 42 ingredients",
-                                    "description": "Here's a beautifully simple recipe that's full of flavor! All you need is some ginger and…",
-                                    "image": {
-                                        "url": "http://example.com/recipe",
-                                        "accessibilityText": "Recipe"
-                                    }
-                                }
-                            ]
+     "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+         {
+                        "simpleResponse":{
+                            "textToSpeech":"Welcome to this Basic Card",
+                            "displayText":"Welcome to this Basic Card"
                         }
-                    }
-                }
-            ]
-        }
-    ]
+                    },
+      {
+        "description": "Option One Description",
+        "image": {
+          "url": "http://imageOneUrl.com",
+          "accessibilityText": "Image description for screen readers"
+        },
+        "optionInfo": {
+          "key": "itemOne",
+          "synonyms": [
+            "thing one",
+            "object one"
+          ]
+        },
+        "title": "Option One Title"
+      },
+      {
+        "description": "Option Two Description",
+        "image": {
+          "url": "http://imageTwoUrl.com",
+          "accessibilityText": "Image description for screen readers"
+        },
+        "optionInfo": {
+          "key": "itemTwo",
+          "synonyms": [
+            "thing two",
+            "object two"
+          ]
+        },
+        "title": "Option Two Title"
+      }
+    ],
+    "platform": "google",
+    "type": "carousel_card"
+      }
     },
     "facebook": {
       "text": "Hello, Facebook!"
