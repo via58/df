@@ -37,21 +37,63 @@ for(var x = 0; x < numberofobjects; x++){
  );
 }
  var full={
-        "fulfillmentMessages": [
-            {
-              "card": {
-                "title": filteredList[0].shopname,
-                "subtitle": "sample title from service",
-                "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-                "buttons": [
-                  {
-                    "text": "button text",
-                    "postback": "https://assistant.google.com/"
-                  }
-                ]
+     "fulfillmentText": "here the list of shops",
+     "fulfillmentMessages": [
+         {
+           "card": {
+             "title": filteredList[0].shopname,
+             "subtitle": "sample title from service",
+             "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+             "buttons": [
+               {
+                "text": "button text",
+                "postback": "https://assistant.google.com/"
               }
-            }
-          ]}
+             ]
+           }
+         }
+       ],
+  "payload": {
+     "google": {
+       "expectUserResponse": true,
+       "richResponse": {
+         "items":[
+                     {
+                         "simpleResponse":{
+                             "textToSpeech":"Welcome to this Basic Card",
+                             "displayText":"Welcome to this Basic Card"
+                         }
+                     },
+                     {
+                         "basicCard":{
+                             "buttons":[
+                                 {
+                                     "title":"Button Title",
+                                     "openUrlAction":{
+                                         "url":"https://some.url"
+                                     }
+                                 }
+                             ],
+                             "formattedText":"Some text",
+                             "image":{
+                                 "url":"http://some_image.jpg",
+                                 "accessibilityText":"Accessibility text describing the image"
+                            },
+                             "title":"Card Title"
+                         }
+                     }
+                 ]
+      }
+     },
+     "facebook": {
+      "text": "Hello, Facebook!"
+     },
+    "slack": {
+      "text": "This is a text response for Slack."
+     }
+  }
+
+ }
 
 return response.send(full);
  });
