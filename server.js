@@ -81,9 +81,25 @@ for(var x = 0; x < numberofobjects; x++){
                             },
                              "title":"Card Title"
                          }
-                     },
-          {
-            "carouselSelect": {
+                     } 
+                 ]
+      }
+      "expectedInputs": [
+        {
+            "inputPrompt": {
+                "initialPrompts": [
+                    {
+                        "textToSpeech": "Alright! Here are a few things you can learn. Which sounds interesting?"
+                    }
+                ],
+                "noInputPrompts": []
+            },
+            "possibleIntents": [
+                {
+                    "intent": "actions.intent.OPTION",
+                    "inputValueData": {
+                        "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                        "carouselSelect": {
                             "items": [
                                 {
                                     "optionInfo": {
@@ -136,10 +152,11 @@ for(var x = 0; x < numberofobjects; x++){
                                 }
                             ]
                         }
-          
-          }
-                 ]
-      }
+                    }
+                }
+            ]
+        }
+    ]
      },
      "facebook": {
       "text": "Hello, Facebook!"
