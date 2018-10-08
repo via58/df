@@ -36,34 +36,22 @@ for(var x = 0; x < numberofobjects; x++){
     }        
  );
 }
-var full= {
-  "fulfillmentText":"Shops near you ",
-  "fulfillmentMessages": [
-      {
-          "simpleResponse": 
+ var full={
+        "fulfillmentMessages": [
             {
-                "textToSpeech": "vijay it is working",
-                "displayText": "vijay it is working"
+              "card": {
+                "title": filteredList[0].shopname,
+                "subtitle": "sample title from service",
+                "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+                "buttons": [
+                  {
+                    "text": "button text",
+                    "postback": "https://assistant.google.com/"
+                  }
+                ]
+              }
             }
-}],
-  "source":"from webapi",
-  "payload":
-  {  
-    "google": {
-    "expectUserResponse": true,
-    "richResponse": {
-      "items": [
-        {
-          "simpleResponse": {
-            "textToSpeech": "this is a simple response from vijay",
-             "displayText": "vijay it is working"
-                            }
-        }
-      ]
-    }
-  }
-}
-}
+          ]}
 
 return response.send(full);
  });
