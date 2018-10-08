@@ -7,6 +7,7 @@ const shivaport = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(bodyparser.json());
 app.get('/',function(request,response){
 response.send('The application is running');
 });
@@ -20,24 +21,60 @@ app.post('/shops',function(request,response){
     const filteredList = shops.NewYork.filter(function(title) {
         return title.shopname==shopname;
       });
-     const all = shops.NewYork.filter(function(title) {
+     
+      const all = shops.NewYork.filter(function(title) {
         return title;
       });  
       var numberofobjects=Object.keys(shops.NewYork).length;   
 
 var loop = [];
 
+// var jsonobject=JSON.parse(shops.NewYork);
+
 for(var x = 0; x < numberofobjects; x++){
- loop.push({
+ loop.push(
+    {
         "card": {
           "title": all[x].shopname,
-          "address": all[x].address,
+          "address": all[x].shopname,
           "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png"
+          
         }
-         });
+    }
+      
+    
+ );
 }
+ //var loopobject=JSON.parse(loop);
 
-   // basic card which working so far       
+    //   var full={
+    //     "fulfillmentMessages": [
+    //         {
+    //           "card": {
+    //             "title": filteredList[0].shopname,
+    //             "subtitle": "sample title from service",
+    //             "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+    //             "buttons": [
+    //               {
+    //                 "text": "button text",
+    //                 "postback": "https://assistant.google.com/"
+    //               }
+    //             ]
+    //           }
+    //         }
+    //       ]}
+    //     var full={
+    //     "fulfillmentMessages": loop}
+
+
+
+         
+    
+
+
+
+//delete
+
 var full={
     "fulfillmentText": "here the list of shops",
     "fulfillmentMessages": [
@@ -96,10 +133,6 @@ var full={
   }
 
 }
- 
-
-
-          
 return response.send(full);
  });
     
