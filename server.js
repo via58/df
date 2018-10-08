@@ -40,9 +40,12 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
 var full = {
+        "fulfillmentText": "here the list of shops",
+        "fulfillmentMessages": [
+        ],
         "payload": {
             "google": {
-                "conversationToken": "",
+                "conversationToken": "[\"_actions_on_google_\"]",
                 "expectUserResponse": true,
                 "expectedInputs": [
                     {
