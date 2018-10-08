@@ -37,8 +37,10 @@ for(var x = 0; x < numberofobjects; x++){
  );
 }
  
-var full={
- "fulfillmentText":"Here the list of shops"
+///////
+ 
+ var full={
+    "fulfillmentText": "here the list of shops",
     "fulfillmentMessages": [
         {
           "card": {
@@ -50,33 +52,24 @@ var full={
                 "text": "button text",
                 "postback": "https://assistant.google.com/"
               }
-            ],
-           "platform":"google"
-           
+            ]
           }
         }
       ],
  "payload": {
     "google": {
-    "conversationToken": "",
-    "expectUserResponse": true,
-    "expectedInputs": [
-        {
-            "inputPrompt": {
-                "initialPrompts": [
+      "expectUserResponse": true,
+      "noInputPrompts":[],
+      "richResponse": {
+        "items":[
                     {
-                        "textToSpeech": "Alright! Here are a few things you can learn. Which sounds interesting?"
-                    }
-                ],
-                "noInputPrompts": []
-            },
-            "possibleIntents": [
-                {
-                    "intent": "actions.intent.OPTION",
-                    "inputValueData": {
-                        "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-                        "listSelect": {
-                            "title": "Things to learn about",
+                        "simpleResponse":{
+                            "textToSpeech":"Welcome to this Basic Card",
+                            "displayText":"Welcome to this Basic Card"
+                        }
+                    },
+         {
+                    "carouselSelect": {
                             "items": [
                                 {
                                     "optionInfo": {
@@ -129,12 +122,10 @@ var full={
                                 }
                             ]
                         }
-                    }
-                }
-            ]
-        }
-    ]
-},
+         }
+                ]
+      }
+    },
     "facebook": {
       "text": "Hello, Facebook!"
     },
@@ -144,8 +135,9 @@ var full={
   }
 
 }
+ 
 
-
+//////////////
 return response.send(full);
  });
     
