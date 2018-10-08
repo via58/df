@@ -61,15 +61,7 @@ for(var x = 0; x < numberofobjects; x++){
       "expectUserResponse": true,
       "noInputPrompts":[],
       "richResponse": {
-        "items":[
-                    {
-                        "simpleResponse":{
-                            "textToSpeech":"Welcome to this Basic Card",
-                            "displayText":"Welcome to this Basic Card"
-                        }
-                    },
-         {
-                    "carouselSelect": {
+         "carouselSelect": {
                             "items": [
                                 {
                                     "optionInfo": {
@@ -122,9 +114,7 @@ for(var x = 0; x < numberofobjects; x++){
                                 }
                             ]
                         }
-         }
-                ]
-      }
+         
     },
     "facebook": {
       "text": "Hello, Facebook!"
