@@ -56,8 +56,9 @@ var full={
       ],
  "payload": {
     "google": {
-      "expectUserResponse": false,
-      "expectedInputs": [
+    "conversationToken": "",
+    "expectUserResponse": true,
+    "expectedInputs": [
         {
             "inputPrompt": {
                 "initialPrompts": [
@@ -69,10 +70,11 @@ var full={
             },
             "possibleIntents": [
                 {
-                 "intent": "actions.intent.OPTION",
+                    "intent": "actions.intent.OPTION",
                     "inputValueData": {
                         "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-                        "carouselSelect": {
+                        "listSelect": {
+                            "title": "Things to learn about",
                             "items": [
                                 {
                                     "optionInfo": {
@@ -130,7 +132,7 @@ var full={
             ]
         }
     ]
-    },
+},
     "facebook": {
       "text": "Hello, Facebook!"
     },
