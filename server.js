@@ -40,7 +40,7 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
  var full = {
-    "conversationToken": "",
+    
     "expectUserResponse": true,
     "expectedInputs": [
         {
