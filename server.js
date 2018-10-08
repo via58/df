@@ -38,7 +38,14 @@ for(var x = 0; x < numberofobjects; x++){
 }
 var full= {
   "fulfillmentText":"Shops near you ",
-  "fulfillmentMessages": [{"simpleResponse": {"textToSpeech": "vijay it is working"}}],
+  "fulfillmentMessages": [
+      {
+          "simpleResponse": 
+            {
+                "textToSpeech": "vijay it is working",
+                "displayText": "vijay it is working"
+            }
+}],
   "source":"from webapi",
   "payload":
   {  
@@ -48,7 +55,8 @@ var full= {
       "items": [
         {
           "simpleResponse": {
-            "textToSpeech": "this is a simple response from vijay"
+            "textToSpeech": "this is a simple response from vijay",
+             "displayText": "vijay it is working"
                             }
         }
       ]
