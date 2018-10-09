@@ -69,16 +69,16 @@ app.post('/shops', function (request, response) {
                                         "rows": rowData,
                                         "columnProperties": [
                                             {
-                                                "header": "Product Name",
-                                                "horizontalAlignment": "CENTER"
+                                                "header": "Product Name"
+                                                
                                             },
                                             {
-                                                "header": "Quantity",
-                                                "horizontalAlignment": "LEADING"
+                                                "header": "Price"
+                                               
                                             },
                                             {
-                                                "header": "Price",
-                                                "horizontalAlignment": "TRAILING"
+                                                "header": "Quantity"
+                                                
                                             }
                                         ],
                                         "buttons": [
@@ -186,7 +186,7 @@ app.post('/shops', function (request, response) {
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "listSelect": {
-                                    "title": "Please select the category",
+                                    "title": "category",
                                     "items": listData
                                 }
                             }
