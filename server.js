@@ -142,33 +142,7 @@ app.post('/shops', function (request, response) {
                                     }
                                 }
                             ],
-                            "suggestions": [
-                                {
-                                    "title": "Basic Card"
-                                },
-                                {
-                                    "title": "Browse Carousel"
-                                },
-                                {
-                                    "title": "Carousel"
-                                },
-                                {
-                                    "title": "List"
-                                },
-                                {
-                                    "title": "Media"
-                                },
-                                {
-                                    "title": "Suggestions"
-                                }
-                            ]
-                        }
-                    },
-                    "possibleIntents": [
-                        {
-                            "intent": "actions.intent.OPTION",
-                            "inputValueData": {
-                                "listSelect": {
+                            "listSelect": {
                                     "title": "List Title",
                                     "items": [
                                         {
@@ -234,8 +208,31 @@ app.post('/shops', function (request, response) {
                                         }
                                     ]
                                 },
-                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec"
-                            }
+                            "suggestions": [
+                                {
+                                    "title": "Basic Card"
+                                },
+                                {
+                                    "title": "Browse Carousel"
+                                },
+                                {
+                                    "title": "Carousel"
+                                },
+                                {
+                                    "title": "List"
+                                },
+                                {
+                                    "title": "Media"
+                                },
+                                {
+                                    "title": "Suggestions"
+                                }
+                            ]
+                        }
+                    },
+                    "possibleIntents": [
+                        {
+                            "intent": "actions.intent.OPTION"
                         }
                     ]
                 }
