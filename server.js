@@ -124,91 +124,129 @@ app.post('/shops', function (request, response) {
 
             );
         }
-          var full = {
-            "fulfillmentText": "here the list of shops",
-            "fulfillmentMessages": [
-                {
-                    "card": {
-                        "title": filteredList[0].shopname,
-                        "subtitle": "sample title from service",
-                        "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-                        "buttons": [
-                            {
-                                "text": "button text",
-                                "postback": "https://assistant.google.com/"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "payload": {
-                "google": {
-                    "expectUserResponse": true,
-                    "richResponse": {
-                        "items": {
-                            "carouselSelect": {
-                                "items": [
-
-                                    {
-                                        "info": {
-                                            "key": "MATH_AND_PRIME",
-                                            "synonyms": [
-                                                "math",
-                                                "math and prime",
-                                                "prime numbers",
-                                                "prime"
-                                            ]
-                                        },
-                                        "title": "Math & prime numbers",
-                                        "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
-                                        "image": {
-                                            "url": "http://example.com/math_and_prime.jpg",
-                                            "accessibilityText": "Math & prime numbers"
-                                        }
-
-
-                                    },
-                                    {
-                                        "optionInfo": {
-                                            "key": "EGYPT",
-                                            "synonyms": [
-                                                "religion",
-                                                "egpyt",
-                                                "ancient egyptian"
-                                            ]
-                                        },
-                                        "title": "Ancient Egyptian religion",
-                                        "description": "42 gods who ruled on the fate of the dead in the afterworld. Throughout the under…",
-                                        "image": {
-                                            "url": "http://example.com/egypt",
-                                            "accessibilityText": "Egypt"
-                                        }
-                                    },
-                                    {
-                                        "optionInfo": {
-                                            "key": "RECIPES",
-                                            "synonyms": [
-                                                "recipes",
-                                                "recipe",
-                                                "42 recipes"
-                                            ]
-                                        },
-                                        "title": "42 recipes with 42 ingredients",
-                                        "description": "Here's a beautifully simple recipe that's full of flavor! All you need is some ginger and…",
-                                        "image": {
-                                            "url": "http://example.com/recipe",
-                                            "accessibilityText": "Recipe"
-                                        }
-                                    }
-                                ]
-                            }
-
-                        }
-                    }
-                }
+          var full= {
+  "conversationToken": "",
+  "expectUserResponse": true,
+  "expectedInputs": [
+    {
+      "inputPrompt": {
+        "richInitialPrompt": {
+          "items": [
+            {
+              "simpleResponse": {
+                "textToSpeech": "This is a simple response for a list."
+              }
             }
-
+          ],
+          "suggestions": [
+            {
+              "title": "Basic Card"
+            },
+            {
+              "title": "Browse Carousel"
+            },
+            {
+              "title": "Carousel"
+            },
+            {
+              "title": "List"
+            },
+            {
+              "title": "Media"
+            },
+            {
+              "title": "Suggestions"
+            }
+          ]
         }
+      },
+      "possibleIntents": [
+        {
+          "intent": "actions.intent.OPTION",
+          "inputValueData": {
+            "listSelect": {
+              "title": "List Title",
+              "items": [
+                {
+                  "image": {
+                    "accessibilityText": "Image alternate text",
+                    "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png"
+                  },
+                  "optionInfo": {
+                    "synonyms": [
+                      "synonym of title 1",
+                      "synonym of title 2",
+                      "synonym of title 3"
+                    ],
+                    "key": "title"
+                  },
+                  "description": "This is a description of a list item.",
+                  "title": "Title of First List Item"
+                },
+                {
+                  "image": {
+                    "accessibilityText": "Google Home",
+                    "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw"
+                  },
+                  "optionInfo": {
+                    "synonyms": [
+                      "Google Home Assistant",
+                      "Assistant on the Google Home"
+                    ],
+                    "key": "Speed way shop 1"
+                  },
+                  "description": "Google Home is a voice-activated speaker powered by the Google Assistant.",
+                  "title": "Google Home"
+                },
+                {
+                  "image": {
+                    "accessibilityText": "Google Pixel",
+                    "url": "https://storage.googleapis.com/madebygoog/v1/Pixel/Pixel_ColorPicker/Pixel_Device_Angled_Black-720w.png"
+                  },
+                  "optionInfo": {
+                    "synonyms": [
+                      "Google Pixel XL",
+                      "Pixel",
+                      "Pixel XL"
+                    ],
+                    "key": "speed Way shop 2"
+                  },
+                  "description": "Pixel. Phone by Google.",
+                  "title": "Google Pixel"
+                },
+                {
+                  "image": {
+                    "accessibilityText": "Google Allo Logo",
+                    "url": "https://allo.google.com/images/allo-logo.png"
+                  },
+                  "optionInfo": {
+                    "synonyms": [
+                      "Allo"
+                    ],
+                    "key": "Speed Way shop 4"
+                  },
+                  "description": "Introducing Google Allo, a smart messaging app that helps you say more and do more.",
+                  "title": "Google Allo"
+                }
+              ]
+            },
+            "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec"
+          }
+        }
+      ]
+    }
+  ],
+  "responseMetadata": {
+    "status": {
+      "message": "Success (200)"
+    },
+    "queryMatchInfo": {
+      "queryMatched": true,
+      "intent": "16fdf55a-d1d6-48a8-8909-8b9e1f023fac"
+    }
+  },
+  "userStorage": "{\"data\":{}}"
+}
 
         return response.send(full);
     }
