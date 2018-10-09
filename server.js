@@ -18,6 +18,8 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
+
+
     if (request.body.queryResult.action == "action_list_Items") {
 
         var numberofobjects = Object.keys(inventory.cooking_essentials).length;
@@ -103,7 +105,7 @@ app.post('/shops', function (request, response) {
         return response.send(fullfilmentResponse);
     }
 
-    else {
+    else if(request.body.queryResult.action == "action_search_shops") {
 
         const shopname = "Speedway Brooklyn 11207"
         const filteredList = shops.NewYork.filter(function (title) {
@@ -157,11 +159,7 @@ app.post('/shops', function (request, response) {
 
 
 
-
-
-
-
-        //delete
+       //delete
 
         var full = {
             "fulfillmentText": "here the list of shops",
@@ -248,10 +246,6 @@ app.post('/shops', function (request, response) {
             }
 
         }
-
-
-
-
 
         return response.send(full);
     }
