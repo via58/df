@@ -1,10 +1,11 @@
+
 const express = require('express');
 const bodyparser = require('body-parser');
 const shops = require('./speedwayShops.json');
 const inventory = require('./inventory.json');
 const request = require('request');
 
-const shivaport = process.env.PORT || 3000;
+const listeningPort = process.env.PORT || 3000;
 
 const app = express();
 
@@ -13,12 +14,7 @@ app.get('/', function (request, response) {
     response.send('The application is running');
 });
 
-
-
-
 app.post('/shops', function (request, response) {
-
-
 
     if (request.body.queryResult.action == "action_list_Items") {
 
@@ -46,8 +42,6 @@ app.post('/shops', function (request, response) {
                 }
             );
         }
-
-
 
         const fullfilmentResponse = {
             "fulfillmentText": "here the list of items in this shop",
@@ -106,21 +100,16 @@ app.post('/shops', function (request, response) {
     }
 
     else if(request.body.queryResult.action == "action_search_shops") {
-
         const shopname = "Speedway Brooklyn 11207"
         const filteredList = shops.NewYork.filter(function (title) {
             return title.shopname == shopname;
         });
-
         const all = shops.NewYork.filter(function (title) {
             return title;
         });
         var numberofobjects = Object.keys(shops.NewYork).length;
 
         var loop = [];
-
-        // var jsonobject=JSON.parse(shops.NewYork);
-
         for (var x = 0; x < numberofobjects; x++) {
             loop.push(
                 {
@@ -135,33 +124,7 @@ app.post('/shops', function (request, response) {
 
             );
         }
-        //var loopobject=JSON.parse(loop);
-
-        //   var full={
-        //     "fulfillmentMessages": [
-        //         {
-        //           "card": {
-        //             "title": filteredList[0].shopname,
-        //             "subtitle": "sample title from service",
-        //             "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-        //             "buttons": [
-        //               {
-        //                 "text": "button text",
-        //                 "postback": "https://assistant.google.com/"
-        //               }
-        //             ]
-        //           }
-        //         }
-        //       ]}
-        //     var full={
-        //     "fulfillmentMessages": loop}
-
-
-
-
-       //delete
-
-        var full = {
+          var full = {
             "fulfillmentText": "here the list of shops",
             "fulfillmentMessages": [
                 {
@@ -249,10 +212,12 @@ app.post('/shops', function (request, response) {
 
         return response.send(full);
     }
+    return response.send("The application is excited");
 });
 
 
 
-app.listen(shivaport, function () {
-    console.log('The application in Port ...' + shivaport);
+app.listen(listeningPort, function () {
+    console.log('The application in Port ...' + listeningPort);
 });
+
