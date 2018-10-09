@@ -33,8 +33,10 @@ app.post('/shops', function (request, response) {
                         },
                         {
                             "buttons": [{
-                                "text": "Add",
-                                "postback": ""
+                                "title": "Add",
+                                "openUrlAction": {
+                                                "url": "https://github.com/actions-on-google"
+                                            }
                             }]
                         }
                     ],
@@ -66,16 +68,16 @@ app.post('/shops', function (request, response) {
                                     "rows": rowData,
                                     "columnProperties": [
                                         {
-                                            "header": "Product Name",
-                                            "horizontalAlignment": "CENTER"
+                                            "header": "Product Name"
+                                            
                                         },
                                         {
-                                            "header": "Quantity",
-                                            "horizontalAlignment": "LEADING"
+                                            "header": "Price"
+                                            
                                         },
-                                        {
-                                            "header": "Price",
-                                            "horizontalAlignment": "TRAILING"
+                                         {
+                                            "header": "Quantity"
+                                            
                                         }
                                     ],
                                     "buttons": [
@@ -126,119 +128,53 @@ app.post('/shops', function (request, response) {
         }
           
  var full = {
-    "webhookPayload": {
-        "google": {
-            "conversationToken": "",
-            "expectUserResponse": true,
-            "expectedInputs": [
-                {
-                    "inputPrompt": {
-                        "richInitialPrompt": {
-                            "items": [
-                                {
-                                    "simpleResponse": {
-                                        "textToSpeech": "This is a simple response for a list."
-                                    }
-                                }
-                            ],
-                            "listSelect": {
-                                    "title": "List Title",
-                                    "items": [
-                                        {
-                                            "image": {
-                                                "accessibilityText": "Image alternate text",
-                                                "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png"
-                                            },
-                                            "optionInfo": {
-                                                "synonyms": [
-                                                    "synonym of title 1",
-                                                    "synonym of title 2",
-                                                    "synonym of title 3"
-                                                ],
-                                                "key": "title"
-                                            },
-                                            "description": "This is a description of a list item.",
-                                            "title": "Title of First List Item"
-                                        },
-                                        {
-                                            "image": {
-                                                "accessibilityText": "Google Home",
-                                                "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw"
-                                            },
-                                            "optionInfo": {
-                                                "synonyms": [
-                                                    "Google Home Assistant",
-                                                    "Assistant on the Google Home"
-                                                ],
-                                                "key": "Speed way shop 1"
-                                            },
-                                            "description": "Google Home is a voice-activated speaker powered by the Google Assistant.",
-                                            "title": "Google Home"
-                                        },
-                                        {
-                                            "image": {
-                                                "accessibilityText": "Google Pixel",
-                                                "url": "https://storage.googleapis.com/madebygoog/v1/Pixel/Pixel_ColorPicker/Pixel_Device_Angled_Black-720w.png"
-                                            },
-                                            "optionInfo": {
-                                                "synonyms": [
-                                                    "Google Pixel XL",
-                                                    "Pixel",
-                                                    "Pixel XL"
-                                                ],
-                                                "key": "speed Way shop 2"
-                                            },
-                                            "description": "Pixel. Phone by Google.",
-                                            "title": "Google Pixel"
-                                        },
-                                        {
-                                            "image": {
-                                                "accessibilityText": "Google Allo Logo",
-                                                "url": "https://allo.google.com/images/allo-logo.png"
-                                            },
-                                            "optionInfo": {
-                                                "synonyms": [
-                                                    "Allo"
-                                                ],
-                                                "key": "Speed Way shop 4"
-                                            },
-                                            "description": "Introducing Google Allo, a smart messaging app that helps you say more and do more.",
-                                            "title": "Google Allo"
-                                        }
-                                    ]
-                                },
-                            "suggestions": [
-                                {
-                                    "title": "Basic Card"
-                                },
-                                {
-                                    "title": "Browse Carousel"
-                                },
-                                {
-                                    "title": "Carousel"
-                                },
-                                {
-                                    "title": "List"
-                                },
-                                {
-                                    "title": "Media"
-                                },
-                                {
-                                    "title": "Suggestions"
-                                }
-                            ]
-                        }
-                    },
-                    "possibleIntents": [
-                        {
-                            "intent": "actions.intent.OPTION"
-                        }
-                    ]
-                }
-            ],
-            "userStorage": "{\"data\":{}}"
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "Choose a item"
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "listSelect": {
+            "title": "Hello",
+            "items": [
+              {
+                "optionInfo": {
+                  "key": "first title key"
+                },
+                "description": "first description",
+                "image": {
+                  "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png",
+                  "accessibilityText": "first alt"
+                },
+                "title": "first title"
+              },
+              {
+                "optionInfo": {
+                  "key": "second"
+                },
+                "description": "second description",
+                "image": {
+                  "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw",
+                  "accessibilityText": "second alt"
+                },
+                "title": "second title"
+              }
+            ]
+          }
         }
+      }
     }
+  }
 }
         return response.send(full);
     }
