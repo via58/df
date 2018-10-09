@@ -40,18 +40,16 @@ for(var x = 0; x < numberofobjects; x++){
 ///////
  
 var full = {
-  "fulfillmentText":"Shops near you ",
-  "fulfillmentMessages": [{"simpleResponse": {"textToSpeech": "vijay it is working"}}],
-  "source":"from webapi",
-  "payload":
-  {  
-    "google": {
-    "expectUserResponse": true,
-    "richResponse": {
-      "carouselSelect": {
-                            "items": [
-                                {
-                                    "optionInfo": {
+    "fulfillmentText": "Shops near you ",
+    "fulfillmentMessages": [{ "simpleResponse": { "textToSpeech": "vijay it is working" } }],
+    "source": "from webapi",
+    "payload": {
+        "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+                "carouselSelect": {
+                    "items": [
+                                { "optionInfo": {
                                         "key": "MATH_AND_PRIME",
                                         "synonyms": [
                                             "math",
@@ -67,8 +65,7 @@ var full = {
                                         "accessibilityText": "Math & prime numbers"
                                     }
                                 },
-                                {
-                                    "optionInfo": {
+                                {"optionInfo": {
                                         "key": "EGYPT",
                                         "synonyms": [
                                             "religion",
@@ -83,11 +80,11 @@ var full = {
                                         "accessibilityText": "Egypt"
                                     }
                                 }
+                             ]}
+            }
+        }
     }
-  }
 }
-}
- 
 
 //////////////
 return response.send(full);
