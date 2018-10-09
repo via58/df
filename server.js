@@ -69,16 +69,13 @@ app.post('/shops', function (request, response) {
                                         "rows": rowData,
                                         "columnProperties": [
                                             {
-                                                "header": "Product Name"
-                                                
+                                                "header": "Product Name",
                                             },
                                             {
-                                                "header": "Price"
-                                               
+                                                "header": "Price",
                                             },
                                             {
-                                                "header": "Quantity"
-                                                
+                                                "header": "Quantity",
                                             }
                                         ],
                                         "buttons": [
@@ -109,37 +106,116 @@ app.post('/shops', function (request, response) {
         case "action_search_shops":
             //// action_list_categories starts here
 
-            const shopname = "Speedway Brooklyn 11207"
-            const filteredList = shops.NewYork.filter(function (title) {
-                return title.shopname == shopname;
-            });
-
-            const all = shops.NewYork.filter(function (title) {
-                return title;
-            });
             var numberofobjects = Object.keys(shops.NewYork).length;
 
-            var loop = [];
+            var carouselData = [];
 
             // var jsonobject=JSON.parse(shops.NewYork);
 
             for (var x = 0; x < numberofobjects; x++) {
-                loop.push(
-                    {
-                        "card": {
-                            "title": all[x].shopname,
-                            "address": all[x].shopname,
-                            "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png"
+                carouselData.push(
 
+                    {
+                        "optionInfo": {
+                            "key": "MATH_AND_PRIME",
+                            "synonyms": [
+                                "math",
+                                "math and prime",
+                                "prime numbers",
+                                "prime"
+                            ]
+                        },
+                        "title": "Math & prime numbers",
+                        "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
+                        "image": {
+                            "url": "http://example.com/math_and_prime.jpg",
+                            "accessibilityText": "Math & prime numbers"
                         }
                     }
-
 
                 );
             }
 
+            var carouselFullfillment = {
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "Choose a item"
+                                    }
+                                }
+                            ]
+                        },
+                        "systemIntent": {
+                            "intent": "actions.intent.OPTION",
+                            "data": {
+                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                                "carouselSelect": {
+                                    "items": [
+                                        {
+                                            "optionInfo": {
+                                                "key": "MATH_AND_PRIME",
+                                                "synonyms": [
+                                                    "math",
+                                                    "math and prime",
+                                                    "prime numbers",
+                                                    "prime"
+                                                ]
+                                            },
+                                            "title": "Math & prime numbers",
+                                            "description": "42 is an abundant number because the sum of its proper divisors 54 is greater…",
+                                            "image": {
+                                                "url": "http://example.com/math_and_prime.jpg",
+                                                "accessibilityText": "Math & prime numbers"
+                                            }
+                                        },
+                                        {
+                                            "optionInfo": {
+                                                "key": "EGYPT",
+                                                "synonyms": [
+                                                    "religion",
+                                                    "egpyt",
+                                                    "ancient egyptian"
+                                                ]
+                                            },
+                                            "title": "Ancient Egyptian religion",
+                                            "description": "42 gods who ruled on the fate of the dead in the afterworld. Throughout the under…",
+                                            "image": {
+                                                "url": "http://example.com/egypt",
+                                                "accessibilityText": "Egypt"
+                                            }
+                                        },
+                                        {
+                                            "optionInfo": {
+                                                "key": "RECIPES",
+                                                "synonyms": [
+                                                    "recipes",
+                                                    "recipe",
+                                                    "42 recipes"
+                                                ]
+                                            },
+                                            "title": "42 recipes with 42 ingredients",
+                                            "description": "Here's a beautifully simple recipe that's full of flavor! All you need is some ginger and…",
+                                            "image": {
+                                                "url": "http://example.com/recipe",
+                                                "accessibilityText": "Recipe"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-            return response.send(loop);
+
+
+
+            return response.send(carouselFullfillment);
 
 
             ////Ends
@@ -186,7 +262,7 @@ app.post('/shops', function (request, response) {
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "listSelect": {
-                                    "title": "category",
+                                    "title": "Please select the category",
                                     "items": listData
                                 }
                             }
