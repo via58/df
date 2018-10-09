@@ -126,7 +126,6 @@ app.post('/shops', function (request, response) {
         }
           
  var full = {
-    "fulfillmentText": "here the list of items in this shop",
     "webhookPayload": {
         "google": {
             "conversationToken": "",
