@@ -17,7 +17,7 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
-if(request.queryResult.action=="action_list_Items"){
+if(request.body.queryResult.action=="action_list_Items"){
 
 const fullfilmentResponse={
     "fulfillmentText": "here the list of items in this shop",
