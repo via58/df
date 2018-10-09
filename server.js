@@ -125,7 +125,7 @@ app.post('/shops', function (request, response) {
             );
         }
           var full= {
-  "conversationToken": "",
+  "conversationToken": "[\"_actions_on_google\",\"list_selection\"]",
   "expectUserResponse": true,
   "expectedInputs": [
     {
