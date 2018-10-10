@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyparser.json());
 app.get('/', function (request, response) {
-    response.send('The application is running');
+    response.send('The application is running and user Location is Set as NewYork Stock Exchange');
 });
 
 app.post('/shops', function (request, response) {
@@ -119,7 +119,7 @@ app.post('/shops', function (request, response) {
                         "title": nearestshops[x].shopname,
                         "description": nearestshops[x].address,
                         "image": {
-                            "url": nearestshops[x].ShopImage.url,
+                            "url": nearestshops[x].image.url,
                             "accessibilityText": nearestshops[x].shoptitle
                         }
                     }
