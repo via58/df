@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const shops = require('./speedwayShops.json');
 const inventory = require('./inventory.json');
 const request = require('request');
-
+const nearestshops = require('./locate.js');
 const listeningPort = process.env.PORT || 3000;
 
 const app = express();
@@ -12,9 +12,6 @@ app.use(bodyparser.json());
 app.get('/', function (request, response) {
     response.send('The application is running');
 });
-
-
-
 
 app.post('/shops', function (request, response) {
 
@@ -112,19 +109,18 @@ app.post('/shops', function (request, response) {
 
             // var jsonobject=JSON.parse(shops.NewYork);
 
-            for (var x = 0; x < numberofobjects; x++) {
+            for (var x = 0; x < 3; x++) {          /// Default you change the number of response
                 carouselData.push(
-
                     {
                         "optionInfo": {
-                            "key": "carouselKey_"+x,
-                            "synonyms": shops.NewYork[x].shopname
+                            "key": "carouselKey_" + x,
+                            "synonyms": nearestshops[x].shopname
                         },
-                        "title": shops.NewYork[x].shopname,
-                        "description": shops.NewYork[x].address,
+                        "title": nearestshops[x].shopname,
+                        "description": nearestshops[x].address,
                         "image": {
-                            "url": shops.NewYork[x].ShopImage.url,
-                            "accessibilityText": shops.NewYork[x].shoptitle
+                            "url": nearestshops[x].ShopImage.url,
+                            "accessibilityText": nearestshops[x].shoptitle
                         }
                     }
 
@@ -226,4 +222,6 @@ app.post('/shops', function (request, response) {
 
 app.listen(listeningPort, function () {
     console.log('The application in Port ...' + listeningPort);
+    console.log('Assumtion User location : NewYork Stock Exchange');
+    console.log('The Nearest shop is' + nearestshops[0].title);
 });
