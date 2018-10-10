@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyparser.json());
 app.get('/', function (request, response) {
-    response.send('The application is running and user Location is Set as NewYork Stock Exchange');
+    response.send('The application is running and user Location is Set as NewYork Stock Exchange ');
 });
 
 app.post('/shops', function (request, response) {
@@ -113,14 +113,14 @@ app.post('/shops', function (request, response) {
                 carouselData.push(
                     {
                         "optionInfo": {
-                            "key": "carouselKey_" + x,
-                            "synonyms": nearestshops[x].shopname
+                            "key": nearestshops[x].optionInfo.key,
+                            "synonyms": nearestshops[x].optionInfo.synonyms
                         },
-                        "title": nearestshops[x].shopname,
-                        "description": nearestshops[x].address,
+                        "title": nearestshops[x].title,
+                        "description": nearestshops[x].description,
                         "image": {
                             "url": nearestshops[x].image.url,
-                            "accessibilityText": nearestshops[x].shoptitle
+                            "accessibilityText": nearestshops[x].accessibilityText
                         }
                     }
 
