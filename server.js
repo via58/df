@@ -123,7 +123,7 @@ app.post('/shops', function (request, response) {
                         "title": shops.NewYork[x].shopname,
                         "description": shops.NewYork[x].address,
                         "image": {
-                            "url": shops.NewYork[x].url,
+                            "url": shops.NewYork[x].ShopImage.url,
                             "accessibilityText": shops.NewYork[x].shoptitle
                         }
                     }
