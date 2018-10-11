@@ -223,7 +223,23 @@ const actionName=request.body.queryResult.action;
 
 if(request.body.queryResult.queryText=="actions_intent_OPTION"){
 
-    return response.send(request.body);
+var jagadeesh={
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "this is a simple response from jaga"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+    return response.send(jagadeesh);
 }
 
  const shopname = "Speedway Brooklyn 11207"
