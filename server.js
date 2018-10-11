@@ -15,7 +15,10 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
-    switch (request.body.queryResult.action) {
+const actionName=request.body.queryResult.action;
+//const inputName=request.body.inputs.rawInputs.query;
+
+    switch (actionName) {
         case "action_list_products":
             ///actions list items starts here
 
@@ -212,16 +215,36 @@ app.post('/shops', function (request, response) {
             return response.send(listFullfillment);
             ////Ends here
             break;
+
         default:
             /// Default case 
             break;
-    } /// End of Switch Statement
-}); /// End of POST method
+    } /// End of Switch Statement for ActionName
 
+if(request.body.queryResult.queryText=="actions_intent_OPTION"){
+
+    return response.send(request.body);
+}
+
+ const shopname = "Speedway Brooklyn 11207"
+     list = nearestshops.filter(function (callback) {
+        return callback.title == shopname;
+    });
+
+
+
+
+
+
+
+
+
+}); /// End of POST method
 
 
 app.listen(listeningPort, function () {
     console.log('The application in Port ...' + listeningPort);
     console.log('Assumtion User location : NewYork Stock Exchange');
     console.log('The Nearest shop is' + nearestshops[0].title);
+    console.log(list)
 });
