@@ -14,46 +14,15 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
-     var full = {
-        "fulfillmentText": "here the list of shops",
-        "fulfillmentMessages": [
-        ],
-        "payload": {
-            "google": {
-                "conversationToken": "",
-                "expectUserResponse": true,
-                "expectedInputs": [
-                    {
-                        "inputPrompt": {
-                            "richInitialPrompt": {
-                                "items": [
-                                    {
-                                        "simpleResponse": {
-                                            "textToSpeech": "Howdy! I can tell you fun facts about almost any number like 0, 42, or 100. What number do you have in mind?",
-                                            "displayText": request.body
-                                        }
-                                    }
-                                ],
-                                
-                            }
-                        },
-                        "possibleIntents": [
-                            {
-                                "intent": "actions.intent.TEXT"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "facebook": {
-                "text": "Hello, Facebook!"
-            }
-        }
-
+     const a =request.body.inputs[0].rawInputs[0].query;
+    if(a=="shops near me"){
+        return response.send({fulfillmentText="success"});
     }
- 
+    else{
     
-return response.send(full);    
+    return response.send(request.body)
+    }
+    
 }); /// End of POST method
 
 
