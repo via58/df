@@ -218,36 +218,14 @@ const actionName=request.body.queryResult.action;
 
         default:
             /// Default case 
+            
+            return response.send(request.body)
+            
             break;
     } /// End of Switch Statement for ActionName
 
-const inputparameter =request.body.inputs[0].rawInputs[0].query;
-if(inputparameter){
-var jagadeesh={
-  "payload": {
-    "google": {
-      "expectUserResponse": true,
-      "richResponse": {
-        "items": [
-          {
-            "simpleResponse": {
-              "textToSpeech": "You have selected " + inputparameter
-            }
-          }
-        ]
-      }
-    }
-  }
-}
-    return response.send(jagadeesh);
-}
 
-
-
-
-
-
-
+ 
 }); /// End of POST method
 
 
