@@ -120,7 +120,7 @@ app.post('/shops', function (request, response) {
                         "description": nearestshops[x].description,
                         "image": {
                             "url": nearestshops[x].image.url,
-                            "accessibilityText": nearestshops[x].accessibilityText
+                            "accessibilityText": nearestshops[x].image.accessibilityText
                         }
                     }
 
