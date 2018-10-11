@@ -19,7 +19,7 @@ const actionName=request.body.queryResult.action;
 //const inputName=request.body.inputs.rawInputs.query;
 
 const temp= request.body.queryResult
-writeFile('C:\Users\543687\Desktop\DialogFlow\SpeedwayApi\foo.txt', temp, function(err) {
+writeFile('C:/Users/543687/Desktop/DialogFlow/SpeedwayApi/foo.txt', temp, function(err) {
   if (err) console.log(err);
 });
     
