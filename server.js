@@ -133,7 +133,7 @@ const actionName=request.body.queryResult.action;
             var carouselFullfillment = {
                 "payload": {
                     "google": {
-                        "expectUserResponse": true,
+                        "expectUserResponse": false,
                         "richResponse": {
                             "items": [
                                 {
