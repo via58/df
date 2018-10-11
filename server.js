@@ -18,6 +18,29 @@ app.post('/shops', function (request, response) {
 const actionName=request.body.queryResult.action;
 //const inputName=request.body.inputs.rawInputs.query;
 
+    if(request.body.queryResult.outputContexts[0].parameters.OPTION){
+var jagadeesh={
+    "fulfillmentText": request.body.queryResult.outputContexts[0].parameters.OPTION ,
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "You have selected " + request.body.queryResult.outputContexts[0].parameters.OPTION
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+    return response.send(jagadeesh);
+}
+    
+    
+    
     switch (actionName) {
         case "action_list_products":
             ///actions list items starts here
