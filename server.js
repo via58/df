@@ -144,7 +144,7 @@ const actionName=request.body.queryResult.action;
                             ]
                         },
                         "systemIntent": {
-                            "intent": "actions.intent.OPTION",
+                            "intent": ["actions.intent.OPTION","carousel"],
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
