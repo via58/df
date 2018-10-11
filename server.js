@@ -221,8 +221,8 @@ const actionName=request.body.queryResult.action;
             break;
     } /// End of Switch Statement for ActionName
 
-if(request.body.queryResult.queryText=="actions_intent_OPTION"){
-
+const inputparameter =request.body.queryResult.outputContexts[0].parameters.OPTION;
+if(inputparameter){
 var jagadeesh={
   "payload": {
     "google": {
@@ -231,7 +231,7 @@ var jagadeesh={
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "this is a simple response from jaga"
+              "textToSpeech": "You have selected " + inputparameter
             }
           }
         ]
@@ -241,13 +241,6 @@ var jagadeesh={
 }
     return response.send(jagadeesh);
 }
-
- const shopname = "Speedway Brooklyn 11207"
-     list = nearestshops.filter(function (callback) {
-        return callback.title == shopname;
-    });
-
-
 
 
 
