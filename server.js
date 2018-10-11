@@ -14,9 +14,46 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
-  var result=request;  
+     var full = {
+        "fulfillmentText": "here the list of shops",
+        "fulfillmentMessages": [
+        ],
+        "payload": {
+            "google": {
+                "conversationToken": "",
+                "expectUserResponse": true,
+                "expectedInputs": [
+                    {
+                        "inputPrompt": {
+                            "richInitialPrompt": {
+                                "items": [
+                                    {
+                                        "simpleResponse": {
+                                            "textToSpeech": "Howdy! I can tell you fun facts about almost any number like 0, 42, or 100. What number do you have in mind?",
+                                            "displayText": request.body
+                                        }
+                                    }
+                                ],
+                                
+                            }
+                        },
+                        "possibleIntents": [
+                            {
+                                "intent": "actions.intent.TEXT"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "facebook": {
+                "text": "Hello, Facebook!"
+            }
+        }
+
+    }
+ 
     
-return response.send(result);    
+return response.send(full);    
 }); /// End of POST method
 
 
