@@ -17,7 +17,7 @@ for (var x = 0; x < numberofobjects; x++) {
         {
             "calculatedTempDistanceinKm": calulatedDistance,
             "optionInfo": {
-                "key": "carouselKey_" + x,
+                "key": shops.NewYork[x].shopname,
                 "synonyms": shops.NewYork[x].shopname
             },
             "title": shops.NewYork[x].shopname,
