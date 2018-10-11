@@ -224,7 +224,27 @@ const actionName=request.body.queryResult.action;
             break;
     } /// End of Switch Statement for ActionName
 
-
+const conversationalwebhook =request
+if(conversationalwebhook){
+var jagadeesh={
+    "fulfillmentText": conversationalwebhook ,
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "You have selected " + conversationalwebhook
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+    return response.send(jagadeesh);
+}
  
 }); /// End of POST method
 
