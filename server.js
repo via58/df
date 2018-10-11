@@ -19,7 +19,7 @@ const actionName=request.body.queryResult.action;
 //const inputName=request.body.inputs.rawInputs.query;
 
 const temp= request.body.queryResult
-writeFile('foo.txt', temp, function(err) {
+writeFile('https://github.com/via58/df/blob/master/foo.txt', temp, function(err) {
   if (err) console.log(err);
 });
     
