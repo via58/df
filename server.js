@@ -246,5 +246,5 @@ app.listen(listeningPort, function () {
     console.log('The application in Port ...' + listeningPort);
     console.log('Assumtion User location : NewYork Stock Exchange');
     console.log('The Nearest shop is' + nearestshops[0].title);
-    console.log(list)
+    console.log()
 });
