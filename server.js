@@ -221,7 +221,7 @@ const actionName=request.body.queryResult.action;
             break;
     } /// End of Switch Statement for ActionName
 
-const inputparameter =request.body.queryResult.outputContexts[0].parameters.OPTION;
+const inputparameter =request.body.inputs[0].rawInputs[0].query;
 if(inputparameter){
 var jagadeesh={
   "payload": {
