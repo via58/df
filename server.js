@@ -18,10 +18,7 @@ app.post('/shops', function (request, response) {
     if(a=="shops near me"){
         return response.send({fulfillmentText="success"});
     }
-    else{
-    
-    return response.send(request.body)
-    }
+   
     
 }); /// End of POST method
 
