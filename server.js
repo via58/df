@@ -5,7 +5,7 @@ const inventory = require('./inventory.json');
 const request = require('request');
 const nearestshops = require('./locate.js');
 const listeningPort = process.env.PORT || 3000;
-
+var writeFile = require('write');
 const app = express();
 
 app.use(bodyparser.json());
@@ -18,26 +18,10 @@ app.post('/shops', function (request, response) {
 const actionName=request.body.queryResult.action;
 //const inputName=request.body.inputs.rawInputs.query;
 
-    if(request.body.queryResult.outputContexts[0].parameters.OPTION){
-var jagadeesh={
-    "fulfillmentText": request.body.queryResult.outputContexts[0].parameters.OPTION ,
-  "payload": {
-    "google": {
-      "expectUserResponse": true,
-      "richResponse": {
-        "items": [
-          {
-            "simpleResponse": {
-              "textToSpeech": "You have selected " + request.body.queryResult.outputContexts[0].parameters.OPTION
-            }
-          }
-        ]
-      }
-    }
-  }
-}
-    return response.send(jagadeesh);
-}
+const temp= request.body.queryResult
+writeFile('foo.txt', temp, function(err) {
+  if (err) console.log(err);
+});
     
     
     
