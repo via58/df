@@ -128,12 +128,12 @@ app.post('/shops', function (request, response) {
                     }
 
                 );
-            }
+              }
 
             var carouselFullfillment = {
                 "payload": {
                     "google": {
-                        "expectUserResponse": true,
+                        "expectUserResponse": false,
                         "richResponse": {
                             "items": [
                                 {
@@ -144,13 +144,11 @@ app.post('/shops', function (request, response) {
                             ]
                         },
                         "systemIntent": {
-                            "intent": "actions.intent.OPTION",
                             "data": {
-                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
                                     "items": carouselData
                                 }
-                               
+                                
                             }
                         }
                     }
@@ -217,6 +215,75 @@ app.post('/shops', function (request, response) {
             ////Ends here
             break;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        case "10searchstores.10searchstores-custom":
+
+            var numberofobjects = Object.keys(inventory.Productcategories).length;
+            var listData = [];
+
+            for (var x = 0; x < numberofobjects; x++) {
+                listData.push(
+                    {
+                        "optionInfo": {
+                            "key": "ListKey_" + x
+                        },
+                        "description": inventory.Productcategories[x].description,
+                        "image": {
+                            "url": inventory.Productcategories[x].url,
+                            "accessibilityText": inventory.Productcategories[x].productcategory
+                        },
+                        "title": inventory.Productcategories[x].productcategory
+                    }
+                );
+            }
+
+
+
+            var listFullfillment = {
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "Choose a item"
+                                    }
+                                }
+                            ]
+                        },
+                        "systemIntent": {
+                            "intent": "actions.intent.OPTION",
+                            "data": {
+                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                                "listSelect": {
+                                    "title": request.body.queryResult.queryText,
+                                    "items": listData
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return response.send(listFullfillment);
+
+
+            break;
         default:
             /// Default case 
             break;
