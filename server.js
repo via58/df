@@ -128,12 +128,6 @@ app.post('/shops', function (request, response) {
                     }
 
                 );
-                suggestionData.push(
-                    {
-                        "title": nearestshops[x].title
-                    }
-                );
-
             }
 
             var carouselFullfillment = {
@@ -155,8 +149,8 @@ app.post('/shops', function (request, response) {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
                                     "items": carouselData
-                                },
-                                "suggestions": [suggestionData]
+                                }
+                               
                             }
                         }
                     }
