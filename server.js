@@ -128,7 +128,7 @@ app.post('/shops', function (request, response) {
                     }
 
                 );
-              }
+            }
 
             var carouselFullfillment = {
                 "payload": {
@@ -144,12 +144,12 @@ app.post('/shops', function (request, response) {
                             ]
                         },
                         "systemIntent": {
+                            "intent": "actions.intent.OPTION",
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
                                     "items": carouselData
                                 }
-                                
                             }
                         }
                     }
