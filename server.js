@@ -15,7 +15,7 @@ app.get('/', function (request, response) {
 
 app.post('/shops', function (request, response) {
 
-//const inputName=request.body.inputs.rawInputs.query;
+    //const inputName=request.body.inputs.rawInputs.query;
 
 
     switch (request.body.queryResult.action) {
@@ -109,7 +109,7 @@ app.post('/shops', function (request, response) {
             var numberofobjects = Object.keys(shops.NewYork).length;
 
             var carouselData = [];
-
+            var suggestionData = [];
             // var jsonobject=JSON.parse(shops.NewYork);
 
             for (var x = 0; x < 3; x++) {          /// Default you change the number of response
@@ -128,6 +128,12 @@ app.post('/shops', function (request, response) {
                     }
 
                 );
+                suggestionData.push(
+                    {
+                        "title": nearestshops[x].title
+                    }
+                );
+
             }
 
             var carouselFullfillment = {
@@ -149,7 +155,8 @@ app.post('/shops', function (request, response) {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
                                     "items": carouselData
-                                }
+                                },
+                                "suggestions": [suggestionData]
                             }
                         }
                     }
