@@ -145,6 +145,7 @@ app.post('/shops', function (request, response) {
                         },
                         "systemIntent": {
                             "data": {
+                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "carouselSelect": {
                                     "items": carouselData
                                 }
