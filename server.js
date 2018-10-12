@@ -171,7 +171,8 @@ app.post('/shops', function (request, response) {
                 listData.push(
                     {
                         "optionInfo": {
-                            "key": inventory.Productcategories[x].productcategory
+                            "key": inventory.Productcategories[x].productcategory,
+                            "synonyms": inventory.Productcategories[x].productcategory
                         },
                         "description": inventory.Productcategories[x].description,
                         "image": {
