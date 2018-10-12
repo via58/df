@@ -17,8 +17,6 @@ app.post('/shops', function (request, response) {
 
 //const inputName=request.body.inputs.rawInputs.query;
 
-
-
     switch (request.body.queryResult.action) {
         case "action_list_products":
             ///actions list items starts here
@@ -221,10 +219,6 @@ app.post('/shops', function (request, response) {
             /// Default case 
             break;
     } /// End of Switch Statement for ActionName
-
-
-
-
 
 
 }); /// End of POST method
