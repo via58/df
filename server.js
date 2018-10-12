@@ -203,7 +203,7 @@ app.post('/shops', function (request, response) {
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "listSelect": {
-                                    "title": actions_intent_option.OPTION,
+                                    "title": "Please select the category",
                                     "items": listData
                                 }
                             }
