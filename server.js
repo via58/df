@@ -16,7 +16,7 @@ app.get('/', function (request, response) {
 app.post('/shops', function (request, response) {
 
 //const inputName=request.body.inputs.rawInputs.query;
-
+console.log(request);
     switch (request.body.queryResult.action) {
         case "action_list_products":
             ///actions list items starts here
