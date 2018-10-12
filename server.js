@@ -16,7 +16,7 @@ app.get('/', function (request, response) {
 app.post('/shops', function (request, response) {
 
 //const inputName=request.body.inputs.rawInputs.query;
-console.log(request.body.outputContexts);
+
     switch (request.body.queryResult.action) {
         case "action_list_products":
             ///actions list items starts here
@@ -104,7 +104,7 @@ console.log(request.body.outputContexts);
 
         case "action_search_shops":
             //// action_list_categories starts here
-            console.log(request.body.outputContexts);
+            console.log(request.body);
             var numberofobjects = Object.keys(shops.NewYork).length;
 
             var carouselData = [];
