@@ -107,9 +107,8 @@ app.post('/shops', function (request, response) {
             //// action_list_categories starts here
 
             var numberofobjects = Object.keys(shops.NewYork).length;
-
+console.log(request.body);
             var carouselData = [];
-            var suggestionData = [];
             // var jsonobject=JSON.parse(shops.NewYork);
 
             for (var x = 0; x < 3; x++) {          /// Default you change the number of response
