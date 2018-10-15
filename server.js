@@ -219,8 +219,28 @@ app.post('/shops', function (request, response) {
         /////End here 
         case "action_navigate_order":
 
-            const fullfilmentResponse = {
-                "fulfillmentText": request.body.queryText,
+            var numberofobjects = Object.keys(inventory.Productcategories).length;
+            var listData = [];
+
+            for (var x = 0; x < numberofobjects; x++) {
+                listData.push(
+                    {
+                        "optionInfo": {
+                            "key": "ListKey_" + x
+                        },
+                        "description": inventory.Productcategories[x].description,
+                        "image": {
+                            "url": inventory.Productcategories[x].url,
+                            "accessibilityText": inventory.Productcategories[x].productcategory
+                        },
+                        "title": inventory.Productcategories[x].productcategory
+                    }
+                );
+            }
+
+ console.log(request.body.inputs[0]);
+
+            var listFullfillment = {
                 "payload": {
                     "google": {
                         "expectUserResponse": true,
@@ -228,19 +248,26 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "simple from api"
+                                        "textToSpeech": "Choose a item"
                                     }
                                 }
                             ]
                         },
-                        "userStorage": "{\"data\":{}}"
+                        "systemIntent": {
+                            "intent": "actions.intent.OPTION",
+                            "data": {
+                                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                                "listSelect": {
+                                    "title": request.body.queryResult.queryText,
+                                    "items": listData
+                                }
+                            }
+                        }
                     }
                 }
-
             }
-            console.log(request.body);
 
-            return response.send(fullfilmentResponse);
+            return response.send(listFullfillment);
 
             break;
 
