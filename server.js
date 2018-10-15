@@ -218,9 +218,31 @@ app.post('/shops', function (request, response) {
 
         /////End here 
    
-        
-        
-        
+     case "action_navigate_order":
+        console.log(request.body)
+         const fullfilmentResponse = {
+                "fulfillmentText": "here the list of items in this shop",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": request.body
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
+            }
+
+            return response.send(fullfilmentResponse);
+
+     break;   
         default:
             /// Default case 
             break;
