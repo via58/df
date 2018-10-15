@@ -1,0 +1,159 @@
+{
+    "cooking_essentials": [
+        {
+            "Productname": "cooking oil",
+            "Price": "$3",
+            "url": "https://www.rd.com/wp-content/uploads/2017/11/01_Constipation_Reasons-to-Buy-a-Bottle-of-Castor-Oil-Today_209913937_MaraZe-760x506.jpg"
+        },
+        {
+            "Productname": "salt",
+            "Price": "$3.5",
+            "url": "https://toriavey.com/images/2012/06/Salt-.jpg"
+        },
+        {
+            "Productname": "Chilly Powder",
+            "Price": "$2.3",
+            "url": "https://5.imimg.com/data5/HQ/YO/MY-35858390/kashmiri-chill-powder-500x500.jpg"
+        },
+        {
+            "Productname": "Jeera",
+            "Price": "$1 ",
+            "url": "https://new-img.patrika.com/upload/2017/12/09/jeera_ke_fayde_2087035_835x547-m.jpg"
+        },
+        {
+            "Productname": "Asafoetida",
+            "Price": "$2",
+            "url": "https://i0.wp.com/www.jaggerypepper.com/wp-content/uploads/2016/06/How-to-make-Asafoetida-powder-at-home-how-to-make-hing-powder-at-home-1.jpg?resize=533%2C400"
+        },
+        {
+            "Productname": "Baking Soda",
+            "Price": "$1.5",
+            "url": "https://www.healthline.com/hlcmsresource/images/AN_images/baking-soda-water-and-wooden-spoon-1296x728.jpg"
+        }
+    ],
+    "Snacks": [
+        {
+            "Productname": "cookies",
+            "Price": "$3",
+            "url": "https://images-gmi-pmc.edge-generalmills.com/e8198dd2-770b-4c7c-a748-ca7538cf48d0.jpg"
+        },
+        {
+            "Productname": "candy",
+            "Price": "$3.5",
+            "url": "https://s23916.pcdn.co/wp-content/uploads/BestCandyStoresinSoutheastMichigan_General.jpg"
+        },
+        {
+            "Productname": "Pastry",
+            "Price": "$2.3",
+            "url": "http://wewalka.us/sites/default/files/styles/recipe_banner_portrait/public/ww-blaetterteigpasteten_2905.jpg?itok=ex44bb2_"
+        },
+        {
+            "Productname": "Haldirams",
+            "Price": "$1 ",
+            "url": "https://5.imimg.com/data5/XD/QW/GLADMIN-3506759/haldiram-namkeen-500x500.jpg"
+        },
+        {
+            "Productname": "Potato Chips",
+            "Price": "$2",
+            "url": "https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HpqgWenDiqtskwac/potato-chips-heap-rotating-over-white-background-macro-view_rhefc6aw__F0000.png"
+        }
+    ],
+    "Beverages": [
+        {
+            "Productname": "coke",
+            "Price": "$3",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/51uJdR27f7L._SY355_.jpg"
+        },
+        {
+            "Productname": "Pepsi",
+            "Price": "$3.5",
+            "url": "https://img2.zakaz.ua/20180502.1525250580.ad72436478c_2018-05-02_Tatiana/20180502.1525250580.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.1350nowm.jpg.1350x.jpg"
+        },
+        {
+            "Productname": "Tropicana",
+            "Price": "$2.3",
+            "url": "https://storage.googleapis.com/zopnow-static/images/products/320/tropicana-mixed-fruit-juice-v-1-ltr-2.png"
+        },
+        {
+            "Productname": "Frooti",
+            "Price": "$1 ",
+            "url": "https://static1.shopfilo.com/1429-medium_default_2x/frooti-mango-tetrapack.jpg"
+        },
+        {
+            "Productname": "Bovonto",
+            "Price": "$2",
+            "url": "http://kalimarkbovonto.com/images/year-bottle1.png"
+        }
+    ],
+    "Household_Supplies": [
+        {
+            "Productname": "Water Bottle",
+            "Price": "$3",
+            "url": "https://hydratem8.co.uk/wp-content/uploads/2017/12/insulated-water-bottle-500ml-ocean-pearl.png"
+        },
+        {
+            "Productname": "LED Bulb",
+            "Price": "$3.5",
+            "url": "https://www.luminousindia.com/media/catalog/product/cache/1/image/1120x/602f0fa2c1f0d1ba5e241f914e856ff9/7/w/7w-led-lamp-shine-eco-cdl_1_2.png"
+        },
+        {
+            "Productname": "cooler",
+            "Price": "$2.3",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/6163zOalusL._SY741_.jpg"
+        },
+        {
+            "Productname": "radio",
+            "Price": "$1 ",
+            "url": "http://www.101languages.net/images/radio/radio19.png"
+        }
+    ],
+    "Personal_care": [
+        {
+            "Productname": "Perfume",
+            "Price": "$3",
+            "url": "https://lt3.pigugroup.eu/colours/645/832/5/6458325/531252b07ba7e1426b4ab0fdf31b7f53_xbig.jpg"
+        },
+        {
+            "Productname": "Hair Dryer",
+            "Price": "$3.5",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/71sRYhXiNLL._SL1500_.jpg"
+        }
+    ],
+    "Productcategories": [
+        {
+            "synonyms":"Cooking Essentials",
+            "Key":"cooking_Essentials",
+            "productcategory": "Cooking Essentials",
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiCxo66XaN0sgg2bTYi5vZtkbMMjvLOMewHtdElB4dCfzKCpO6",
+            "description": "cooking essentials such as oil,salt and Baking soda etc.. "
+        },
+        {
+            "synonyms":"Snacks",
+            "Key":"Snacks",
+            "productcategory": "Snacks",
+            "url": "https://pgiservices.com/wp-content/uploads/2017/08/snacks3.jpg",
+            "description": "Snacks such as cookies,candy and pastry etc.. "
+        },
+        {
+            "synonyms":"Beverages",
+            "Key":"Beverages",
+            "productcategory": "Beverages",
+            "url": "https://www.schlotzskys.com/-/media/schlotzskys/menu/beverages/coke-products_874x440.jpg",
+            "description": "Beverages such as cook,pepsi and bovonto etc.. "
+        },
+        {
+            "synonyms":"Household Supplies",
+            "Key":"Household_Supplies",
+            "productcategory": "Household Supplies",
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp-iUU-WaHrTYu-dY8QNwal2gjH7dWmExTVb5AwOrdQJt3u4YLdw",
+            "description": "Household supplies such as water bottle,LED bulb etc.. "
+        },
+        {
+            "synonyms":"Personal Care",
+            "Key":"Personal_Care",
+            "productcategory": "Personal Care",
+            "url": "https://www.uk-cpi.com/login/resources/market-personal-care.jpg",
+            "description": "Personal care such as perfume,Hair dryer etc.. "
+        }
+    ]
+}
