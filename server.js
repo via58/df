@@ -220,7 +220,7 @@ app.post('/shops', function (request, response) {
         case "action_navigate_order":
 
             const fullfilmentResponse = {
-                "fulfillmentText": "here the list of items in this shop",
+                "fulfillmentText": request.body.queryText,
                 "payload": {
                     "google": {
                         "expectUserResponse": true,
@@ -228,7 +228,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": request.body
+                                        "textToSpeech": "simple from api"
                                     }
                                 }
                             ]
