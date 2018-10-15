@@ -252,7 +252,7 @@ console.log(request.body);
                 );
             }
 
- console.log(request.body.inputs);
+ console.log(request.body.inputs[0]);
 
             var listFullfillment = {
                 "payload": {
