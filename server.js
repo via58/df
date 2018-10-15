@@ -19,7 +19,7 @@ app.post('/shops', function (request, response) {
 
 
     switch (request.body.queryResult.action) {
-        
+
 
         case "action_search_shops":
             //// action_list_categories starts here
@@ -135,7 +135,7 @@ app.post('/shops', function (request, response) {
             ////Ends here
             break;
 
-    case "action_list_products":
+        case "action_list_products":
             ///actions list items starts here
 
             var numberofobjects = Object.keys(inventory.cooking_essentials).length;
@@ -217,10 +217,9 @@ app.post('/shops', function (request, response) {
             break;
 
         /////End here 
-   
-     case "action_navigate_order":
-        console.log(request.body)
-         const fullfilmentResponse = {
+        case "action_navigate_order":
+
+            const fullfilmentResponse = {
                 "fulfillmentText": "here the list of items in this shop",
                 "payload": {
                     "google": {
@@ -239,10 +238,12 @@ app.post('/shops', function (request, response) {
                 }
 
             }
+            console.log(request.body);
 
             return response.send(fullfilmentResponse);
 
-     break;   
+            break;
+
         default:
             /// Default case 
             break;
