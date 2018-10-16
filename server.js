@@ -228,7 +228,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": request.body.queryText
+                                        "textToSpeech": "this is simple response"
                                     }
                                 }
                             ]
