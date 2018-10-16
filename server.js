@@ -219,28 +219,11 @@ app.post('/shops', function (request, response) {
         /////End here 
         case "action_navigate_order":
 
-            const fullfilmentResponse = {
-                "fulfillmentText": "here the list of items in this shop",
-                "payload": {
-                    "google": {
-                        "expectUserResponse": true,
-                        "richResponse": {
-                            "items": [
-                                {
-                                    "simpleResponse": {
-                                        "textToSpeech": "this is simple response"
-                                    }
-                                }
-                            ]
-                        },
-                        "userStorage": "{\"data\":{}}"
-                    }
-                }
+            const actionornavi = {
+                "fulfillmentText": "you have selected" + request.body.queryResult.queryText
 
             }
-            console.log(request.body);
-
-            return response.send(fullfilmentResponse);
+            return response.send(actionornavi);
 
             break;
 
@@ -249,13 +232,7 @@ app.post('/shops', function (request, response) {
             break;
     } /// End of Switch Statement for ActionName
 
-
-
-
-
-
 }); /// End of POST method
-
 
 app.listen(listeningPort, function () {
     console.log('The application in Port ...' + listeningPort);
