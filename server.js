@@ -38,7 +38,7 @@ app.post('/shops', function (request, response) {
                             "synonyms": nearestshops[x].optionInfo.synonyms
                         },
                         "title": nearestshops[x].title,
-                        "description": nearestshops[x].description + " - " + nearestshops[x].calculatedTempDistanceinMiles + " Miles",
+                        "description": nearestshops[x].calculatedTempDistanceinMiles,
                         "image": {
                             "url": nearestshops[x].image.url,
                             "accessibilityText": nearestshops[x].image.accessibilityText
