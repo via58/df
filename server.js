@@ -2,7 +2,7 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const shops = require('./speedwayShops.json');
 const inventory = require('./inventory.json');
-const request = require('request');
+//const request = require('request');
 const nearestshops = require('./locate.js');
 const listeningPort = process.env.PORT || 3000;
 
