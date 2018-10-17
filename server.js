@@ -220,7 +220,7 @@ app.post('/shops', function (request, response) {
         case "action_navigate_order":
 
             const actionornavi = {
-                "fulfillmentText": "you have selected" + request.body.queryResult.queryText
+                "fulfillmentText": "you have selected" + request.body.queryResult.parameters.navigateOrOrder
 
             }
             return response.send(actionornavi);
