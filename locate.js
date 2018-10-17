@@ -21,7 +21,7 @@ for (var x = 0; x < numberofobjects; x++) {
                 "synonyms": shops.NewYork[x].shopname
             },
             "title": shops.NewYork[x].shopname,
-            "description": shops.NewYork[x].address,
+            "description": shops.NewYork[x].address + " - " + calulatedDistance + " Miles",
             "image": {
                 "url": shops.NewYork[x].ShopImage.url,
                 "accessibilityText": shops.NewYork[x].shoptitle
