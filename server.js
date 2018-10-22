@@ -224,8 +224,34 @@ app.post('/shops', function (request, response) {
         case "action_navigate_order":
 
             const actionornavi = {
-                "fulfillmentText": "you have selected" + request.body.queryResult.parameters.navigateOrOrder
+                "fulfillmentText": "Shops near you ",
+                "fulfillmentMessages": [{ "simpleResponse": { "textToSpeech": "vijay it is working" } }],
+                "source": "from webapi",
+                "payload":
+                {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "would you like to navigate to shop or Order Items ?"
+                                    }
+                                }
+                            ],
+                            "suggestions": [
+                                {
+                                    "title": "Order"
+                                },
+                                {
+                                    "title": "Navigate"
+                                }
+                                
+                            ]
 
+                        }
+                    }
+                }
             }
             return response.send(actionornavi);
 
