@@ -112,7 +112,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Choose a item"
+                                        "textToSpeech": "please select the category"
                                     }
                                 }
                             ]
@@ -122,7 +122,7 @@ app.post('/shops', function (request, response) {
                             "data": {
                                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                                 "listSelect": {
-                                    "title": "Please select the category",
+                                    "title": "product categories",
                                     "items": listData
                                 }
                             }
