@@ -151,6 +151,7 @@ app.post('/shops', function (request, response) {
                                 "text": inventory.cooking_essentials[x].Price
 
                             },
+                            {
                             "buttons": [
                                             {
                                                 "title": "Check out",
@@ -159,6 +160,7 @@ app.post('/shops', function (request, response) {
                                                 }
                                             }
                                         ]
+                            }
                         ],
                         "dividerAfter": true
                     }
