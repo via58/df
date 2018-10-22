@@ -56,7 +56,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Choose a item"
+                                        "textToSpeech": "I found few shops near you"
                                     }
                                 }
                             ]
