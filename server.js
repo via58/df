@@ -151,12 +151,14 @@ app.post('/shops', function (request, response) {
                                 "text": inventory.cooking_essentials[x].Price
 
                             },
-                            {
-                                "buttons": [{
-                                    "title": "Add",
-                                    "postback": ""
-                                }]
-                            }
+                            "buttons": [
+                                            {
+                                                "title": "Check out",
+                                                "openUrlAction": {
+                                                    "url": "https://github.com/actions-on-google"
+                                                }
+                                            }
+                                        ]
                         ],
                         "dividerAfter": true
                     }
@@ -171,7 +173,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Simple Response"
+                                        "textToSpeech": "here the list of products"
                                     }
                                 },
                                 {
