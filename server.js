@@ -262,6 +262,47 @@ app.post('/shops', function (request, response) {
             });
 
             break;
+             case "action_navigationcard":
+            var navcard = {
+                "fulfillmentText": "Do you want to navigate to shop ?",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "Simple Response"
+                                    }
+                                },
+                                {
+                                    "basicCard": {
+                                        "title": "Speed Way Brooklyn",
+                                        "formattedText": "On clicking the below navigate button will open Google maps for navigation",
+                                        "image": {
+                                            "url": "https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=13&size=400x400&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM&signature=NZMTsRQ98_nbqv4GNcrJJwjZAKA=",
+                                            "accessibilityText": "SpeedWay Shop"
+                                        },
+                                        "buttons": [
+                                            {
+                                                "title": "Navigate",
+                                                "openUrlAction": {
+                                                    "url": "https://www.google.co.in/maps/place/Speedway/@40.6482096,-73.9676652,13z/data=!4m8!1m2!2m1!1sspeedway+near+Brooklyn,+NY,+USA!3m4!1s0x89c25b3325fc81f7:0x6ec871478a5c22f6!8m2!3d40.6348639!4d-73.9678491"
+                                                }
+                                            }
+                                        ],
+                                        "imageDisplayOptions": "CROPPED"
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
+
+            }
+            break;
         default:
             /// Default case 
             break;
