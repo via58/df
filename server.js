@@ -151,15 +151,9 @@ app.post('/shops', function (request, response) {
                                 "text": inventory.cooking_essentials[x].Price
 
                             },
-                            {
-                            "buttons": [
-                                            {
-                                                "title": "Check out",
-                                                "openUrlAction": {
-                                                    "url": "https://github.com/actions-on-google"
-                                                }
-                                            }
-                                        ]
+                             {
+                                "text": "1 Pkt"
+
                             }
                         ],
                         "dividerAfter": true
