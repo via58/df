@@ -255,11 +255,10 @@ app.post('/shops', function (request, response) {
                     product:"salt",
                     Quantity:"2"
             }
-            const path = __dirname+'\cart.json';
             dataToWrite = JSON.stringify(dataToWrite)
-            fs.appendFile(path, dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
+            fs.appendFile('C:/Users/543687/Desktop/DialogFlow/file.json', dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
                 if (err) throw err;
-                console.log('Saved!'+path);
+                console.log('Saved!');
             });
 
             break;
