@@ -255,10 +255,11 @@ app.post('/shops', function (request, response) {
                     product:"salt",
                     Quantity:"2"
             }
+            const path = __dirname+'\cart.json';
             dataToWrite = JSON.stringify(dataToWrite)
-            fs.appendFile('cart.json', dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
+            fs.appendFile(path, dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
                 if (err) throw err;
-                console.log('Saved!');
+                console.log('Saved!'+path);
             });
 
             break;
