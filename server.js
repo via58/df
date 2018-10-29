@@ -169,7 +169,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "here the list of products"
+                                        "textToSpeech": "please pick an item from this Menu"
                                     }
                                 },
                                 {
