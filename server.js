@@ -302,6 +302,7 @@ app.post('/shops', function (request, response) {
 
 
             }
+            return response.send(navcard);
             break;
         default:
             /// Default case 
