@@ -250,7 +250,18 @@ app.post('/shops', function (request, response) {
             return response.send(actionornavi);
 
             break;
+            case "action_addproducttocart":
+            var dataToWrite = {
+                    product:"salt",
+                    Quantity:"2"
+            }
+            dataToWrite = JSON.stringify(dataToWrite)
+            fs.appendFile('cart.json', dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+            });
 
+            break;
         default:
             /// Default case 
             break;
