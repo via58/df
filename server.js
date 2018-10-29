@@ -177,8 +177,8 @@ app.post('/shops', function (request, response) {
                                         "title": "List of Products ",
                                         "subtitle": "",
                                         "image": {
-                                            "url": "https://avatars0.githubusercontent.com/u/23533486",
-                                            "accessibilityText": "Actions on Google"
+                                            "url": inventory.Productcategories[1].url,
+                                            "accessibilityText": "Products"
                                         },
                                         "rows": rowData,
                                         "columnProperties": [
