@@ -272,7 +272,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Simple Response"
+                                        "textToSpeech": "Navigate to Speed Way shop ?"
                                     }
                                 },
                                 {
@@ -290,8 +290,8 @@ app.post('/shops', function (request, response) {
                                                     "url": "https://www.google.co.in/maps/place/Speedway/@40.6482096,-73.9676652,13z/data=!4m8!1m2!2m1!1sspeedway+near+Brooklyn,+NY,+USA!3m4!1s0x89c25b3325fc81f7:0x6ec871478a5c22f6!8m2!3d40.6348639!4d-73.9678491"
                                                 }
                                             }
-                                        ],
-                                        "imageDisplayOptions": "CROPPED"
+                                        ]
+                                        
                                     }
                                 }
                             ]
