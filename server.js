@@ -369,12 +369,12 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "You have ordered "
+                                        "textToSpeech": "Would you like to proceed ? "
                                     }
                                 },
                                 {
                                     "tableCard": {
-                                        "title": "You have Ordered ",
+                                        "title": "Your Cart ",
                                         "subtitle": "",
                                         "image": {
                                             "url": inventory.Productcategories[1].url,
