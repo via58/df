@@ -151,8 +151,8 @@ app.post('/shops', function (request, response) {
                                 "text": inventory.cooking_essentials[x].Price
 
                             },
-                             {
-                                "text": "1 Pkt"
+                            {
+                                "text": "1 Pkt" ///inventory.cooking_essentials[x].Quantity
 
                             }
                         ],
@@ -240,7 +240,7 @@ app.post('/shops', function (request, response) {
                                 {
                                     "title": "Navigate"
                                 }
-                                
+
                             ]
 
                         }
@@ -250,10 +250,10 @@ app.post('/shops', function (request, response) {
             return response.send(actionornavi);
 
             break;
-            case "action_addproducttocart":
+        case "action_addproducttocart":
             var dataToWrite = {
-                    product:"salt",
-                    Quantity:"2"
+                product: "salt",
+                Quantity: "2"
             }
             dataToWrite = JSON.stringify(dataToWrite)
             fs.appendFile('C:/Users/543687/Desktop/DialogFlow/file.json', dataToWrite, { 'Content-Type': 'application/json' }, function (err) {
@@ -262,7 +262,7 @@ app.post('/shops', function (request, response) {
             });
 
             break;
-             case "action_navigationcard":
+        case "action_navigationcard":
             var navcard = {
                 "fulfillmentText": "Do you want to navigate to shop ?",
                 "payload": {
@@ -291,7 +291,7 @@ app.post('/shops', function (request, response) {
                                                 }
                                             }
                                         ]
-                                        
+
                                     }
                                 }
                             ]
@@ -304,6 +304,120 @@ app.post('/shops', function (request, response) {
             }
             return response.send(navcard);
             break;
+
+        case "action_cart":
+            var rowData = [];
+            for (var x = 0; x < numberofobjects; x++) {
+                rowData.push(
+                    {
+                        "cells": [
+                            {
+                                "text": 'Salt'
+                            },
+                            {
+                                "text": "2"
+
+                            },
+                            {
+                                "text": "$6"
+
+                            }
+
+                        ],
+                        "dividerAfter": true
+                    },
+                    {
+                        "cells": [
+                            {
+                                "text": 'Oil'
+                            },
+                            {
+                                "text": "1"
+
+                            },
+                            {
+                                "text": "$4.5"
+
+                            }
+
+                        ],
+                        "dividerAfter": true
+                    },
+                    {
+                        "cells": [
+                            {
+                                "text": 'Total'
+                            },
+                            {
+                                "text": "3"
+
+                            },
+                            {
+                                "text": "$10.5"
+
+                            }
+
+                        ],
+                        "dividerAfter": true
+                    }
+                );
+            }
+            const cartFullfillmentResponse = {
+                "fulfillmentText": "here the list of items in this shop",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "You have ordered "
+                                    }
+                                },
+                                {
+                                    "tableCard": {
+                                        "title": "You have Ordered ",
+                                        "subtitle": "",
+                                        "image": {
+                                            "url": inventory.Productcategories[1].url,
+                                            "accessibilityText": "Products"
+                                        },
+                                        "rows": rowData,
+                                        "columnProperties": [
+                                            {
+                                                "header": "Product Name",
+                                            },
+                                            {
+                                                "header": "Quantity",
+                                            },
+                                            {
+                                                "header": "Total Price",
+                                            }
+                                        ],
+                                        "buttons": [
+                                            {
+                                                "title": "Check out",
+                                                "openUrlAction": {
+                                                    "url": "https://github.com/actions-on-google"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
+            }
+
+            return cartFullfillmentResponse;
+            break;
+
+
+
+
         default:
             /// Default case 
             break;
