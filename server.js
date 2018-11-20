@@ -306,9 +306,7 @@ app.post('/shops', function (request, response) {
             break;
 
         case "action_cart":
-            var rowData = [];
-            for (var x = 0; x < numberofobjects; x++) {
-                rowData.push(
+            var rowData = [
                     {
                         "cells": [
                             {
@@ -360,8 +358,8 @@ app.post('/shops', function (request, response) {
                         ],
                         "dividerAfter": true
                     }
-                );
-            }
+            ];
+
             const cartFullfillmentResponse = {
                 "fulfillmentText": "here the list of items in this shop",
                 "payload": {
@@ -412,7 +410,7 @@ app.post('/shops', function (request, response) {
 
             }
 
-            return  response.send(cartFullfillmentResponse);
+            return response.send(cartFullfillmentResponse);
             break;
 
 
