@@ -412,7 +412,7 @@ app.post('/shops', function (request, response) {
 
             }
 
-            return cartFullfillmentResponse;
+            return  response.send(cartFullfillmentResponse);
             break;
 
 
