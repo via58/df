@@ -307,7 +307,7 @@ app.post('/shops', function (request, response) {
             return response.send(navcard);
             break;
 
-        // case "action_cart":
+         case "action_cart":
             var rowData = [
                 {
                     "cells": [
