@@ -429,6 +429,21 @@ app.post('/shops', function (request, response) {
             return response.send(cartFullfillmentResponse);
             break;
 
+        case "session_variable":
+
+
+            arr.push(request.body.queryResult.outputContexts[0].parameters.number);
+            //request.session[shops]=arr
+
+            //   request.session.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+
+            request.session.cookie = "4"
+
+
+            return response.send(request.session.cookie)
+
+            break;
+
 
         default:
             /// Default case 
