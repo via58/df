@@ -366,12 +366,12 @@ app.post('/shops', function (request, response) {
                 "fulfillmentText": "here the list of items in this shop",
                 "payload": {
                     "google": {
-                        "expectUserResponse": true,
+                        "expectUserResponse": false,
                         "richResponse": {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Would you like to proceed ? "
+                                        "textToSpeech": "Please collect the Products at your nearest Speed Way Shop ..Happy Ordering ... ? "
                                     }
                                 },
                                 {
