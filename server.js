@@ -426,7 +426,7 @@ app.post('/shops', function (request, response) {
 
             }
 
-            return response.send(cartFullfillmentResponse);
+            return response.send("");
             break;
 
         case "session_variable":
