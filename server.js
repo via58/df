@@ -429,8 +429,7 @@ app.post('/shops', function (request, response) {
                 request.session.quantity = quantity;
             }
 
-            return response.send(request.session);
-            break;
+           break;
         //   request.session.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
            
         case "action_finalCart":
