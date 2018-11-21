@@ -6,9 +6,6 @@ const cookie = require('cookie-parser');
 const session = require('express-session');
 //const request = require('request');
 const nearestshops = require('./locate.js');
-
-//const sessionCartValues = require('./sessioncart.js');
-
 const listeningPort = process.env.PORT || 3000;
 
 const app = express();
@@ -227,30 +224,30 @@ app.post('/shops', function (request, response) {
                 "fulfillmentMessages": [{ "simpleResponse": { "textToSpeech": "vijay it is working" } }],
                 "source": "from webapi",
                 "payload":
-                    {
-                        "google": {
-                            "expectUserResponse": true,
-                            "richResponse": {
-                                "items": [
-                                    {
-                                        "simpleResponse": {
-                                            "textToSpeech": "would you like to navigate to shop or Order Items ?"
-                                        }
+                {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "would you like to navigate to shop or Order Items ?"
                                     }
-                                ],
-                                "suggestions": [
-                                    {
-                                        "title": "Order"
-                                    },
-                                    {
-                                        "title": "Navigate"
-                                    }
+                                }
+                            ],
+                            "suggestions": [
+                                {
+                                    "title": "Order"
+                                },
+                                {
+                                    "title": "Navigate"
+                                }
 
-                                ]
+                            ]
 
-                            }
                         }
                     }
+                }
             }
             return response.send(actionornavi);
 
@@ -310,35 +307,217 @@ app.post('/shops', function (request, response) {
             return response.send(navcard);
             break;
 
-        case "action_cart":
+        // case "action_cart":
+            var rowData = [
+                {
+                    "cells": [
+                        {
+                            "text": 'Salt'
+                        },
+                        {
+                            "text": "2"
 
-        //getting ordered item from dialog flow
-            var orderedItem = {
-                itemName: request.body.queryResult.outputContexts[0].parameters.products,
-                itemQuantity: request.body.queryResult.outputContexts[0].parameters.number
+                        },
+                        {
+                            "text": "$6"
+
+                        }
+
+                    ],
+                    "dividerAfter": true
+                },
+                {
+                    "cells": [
+                        {
+                            "text": 'Oil'
+                        },
+                        {
+                            "text": "1"
+
+                        },
+                        {
+                            "text": "$4.5"
+
+                        }
+
+                    ],
+                    "dividerAfter": true
+                },
+                {
+                    "cells": [
+                        {
+                            "text": 'Total'
+                        },
+                        {
+                            "text": "3"
+
+                        },
+                        {
+                            "text": "$10.5"
+
+                        }
+
+                    ],
+                    "dividerAfter": true
+                }
+            ];
+
+            const cartFullfillmentResponse = {
+                "fulfillmentText": "here the list of items in this shop",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "Would you like to proceed ? "
+                                    }
+                                },
+                                {
+                                    "tableCard": {
+                                        "title": "Your Cart ",
+                                        "subtitle": "",
+                                        "image": {
+                                            "url": inventory.Productcategories[1].url,
+                                            "accessibilityText": "Products"
+                                        },
+                                        "rows": rowData,
+                                        "columnProperties": [
+                                            {
+                                                "header": "Product Name",
+                                            },
+                                            {
+                                                "header": "Quantity",
+                                            },
+                                            {
+                                                "header": "Total Price",
+                                            }
+                                        ],
+                                        "buttons": [
+                                            {
+                                                "title": "Check out",
+                                                "openUrlAction": {
+                                                    "url": "https://github.com/actions-on-google"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
             }
 
-        //calling dataMapping function from another file  
-            var dataMapping= require('./sessioncart.js')
-            dataMapping(orderedItem);
-            
+            return response.send(cartFullfillmentResponse);
             break;
 
         case "session_variable":
 
+            var productName = request.body.queryResult.outputContexts[0].parameters.products;
+            var quantity = request.body.queryResult.outputContexts[0].parameters.number;
 
-            arr.push(request.body.queryResult.outputContexts[0].parameters.number);
-            //request.session[shops]=arr
+            if (request.session.productName) {
+                request.session.productName = request.session.productName+ ","+productName ;
+                request.session.quantity =  request.session.quantity + ","+quantity ;
+            }
+            else {
+                request.session.productName = productName;
+                request.session.quantity = quantity;
+            }
 
-            //   request.session.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+            return response.send(request.session);
+            break;
+        //   request.session.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+           
+        case "action_finalCart":
 
-            request.session.cookie = "4"
+            var sessionproducts = [];
+            var str = request.session.productName
+            var sessionproducts = str.split(",").map(function (val) {
+                return String(val);
+            });
+            var sessionquantity = [];
+            var num = request.session.quantity
+            var sessionquantity = num.split(",").map(function (val) {
+                return String(val);
+            });
 
+            var rowData = [];
+            for (var x = 0; x < sessionproducts.length; x++) {
+                rowData.push(
+                    {
+                        "cells": [
+                            {
+                                "text": sessionproducts[0]
+                            },
+                            {
+                                "text": sessionquantity[0]
 
-            return response.send(request.session.cookie)
+                            }
+                        ],
+                        "dividerAfter": true
+                    }
+                );
+            }
+            const finalCartResponse = {
+                "fulfillmentText": "here the list of items in this shop",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "Would you like to proceed ? "
+                                    }
+                                },
+                                {
+                                    "tableCard": {
+                                        "title": "Your Cart ",
+                                        "subtitle": "",
+                                        "image": {
+                                            "url": inventory.Productcategories[1].url,
+                                            "accessibilityText": "Products"
+                                        },
+                                        "rows": rowData,
+                                        "columnProperties": [
+                                            {
+                                                "header": "Product Name",
+                                            },
+                                            {
+                                                "header": "Quantity",
+                                            },
+                                            {
+                                                "header": "Total Price",
+                                            }
+                                        ],
+                                        "buttons": [
+                                            {
+                                                "title": "Check out",
+                                                "openUrlAction": {
+                                                    "url": "https://github.com/actions-on-google"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
+            }
+
+            return response.send(finalCartResponse)
 
             break;
 
+         
 
         default:
             /// Default case 
