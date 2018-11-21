@@ -2,12 +2,17 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const shops = require('./speedwayShops.json');
 const inventory = require('./inventory.json');
+const cookie = require('cookie-parser');
+const session = require('express-session');
 //const request = require('request');
 const nearestshops = require('./locate.js');
+
+//const sessionCartValues = require('./sessioncart.js');
+
 const listeningPort = process.env.PORT || 3000;
 
 const app = express();
-
+app.use(session({ secret: "cart data" }));
 app.use(bodyparser.json());
 app.get('/', function (request, response) {
     response.send('The application is running and user Location is Set as NewYork Stock Exchange ');
@@ -16,7 +21,7 @@ app.get('/', function (request, response) {
 app.post('/shops', function (request, response) {
 
     //const inputName=request.body.inputs.rawInputs.query;
-
+    var arr = [];
 
     switch (request.body.queryResult.action) {
 
@@ -222,30 +227,30 @@ app.post('/shops', function (request, response) {
                 "fulfillmentMessages": [{ "simpleResponse": { "textToSpeech": "vijay it is working" } }],
                 "source": "from webapi",
                 "payload":
-                {
-                    "google": {
-                        "expectUserResponse": true,
-                        "richResponse": {
-                            "items": [
-                                {
-                                    "simpleResponse": {
-                                        "textToSpeech": "would you like to navigate to shop or Order Items ?"
+                    {
+                        "google": {
+                            "expectUserResponse": true,
+                            "richResponse": {
+                                "items": [
+                                    {
+                                        "simpleResponse": {
+                                            "textToSpeech": "would you like to navigate to shop or Order Items ?"
+                                        }
                                     }
-                                }
-                            ],
-                            "suggestions": [
-                                {
-                                    "title": "Order"
-                                },
-                                {
-                                    "title": "Navigate"
-                                }
+                                ],
+                                "suggestions": [
+                                    {
+                                        "title": "Order"
+                                    },
+                                    {
+                                        "title": "Navigate"
+                                    }
 
-                            ]
+                                ]
 
+                            }
                         }
                     }
-                }
             }
             return response.send(actionornavi);
 
@@ -306,58 +311,69 @@ app.post('/shops', function (request, response) {
             break;
 
         case "action_cart":
+
+        //getting ordered item from dialog flow
+            var orderedItem = {
+                itemName: request.body.queryResult.outputContexts[0].parameters.products,
+                itemQuantity: request.body.queryResult.outputContexts[0].parameters.number
+            }
+
+        //calling dataMapping function from another file  
+            var dataMapping= require('./sessioncart.js')
+            dataMapping(orderedItem);
+            
             var rowData = [
-                    {
-                        "cells": [
-                            {
-                                "text": 'Salt'
-                            },
-                            {
-                                "text": "2"
+                {
+                    "cells": [
+                        {
+                            "text": 'Salt'
+                        },
+                        {
+                            "text": "2"
 
-                            },
-                            {
-                                "text": "$6"
+                        },
+                        {
+                            "text": "$6"
 
-                            }
+                        }
 
-                        ],
-                        "dividerAfter": true
-                    },
-                    {
-                        "cells": [
-                            {
-                                "text": 'Oil'
-                            },
-                            {
-                                "text": "1"
+                    ],
+                    "dividerAfter": true
+                },
+                {
+                    "cells": [
+                        {
+                            "text": 'Oil'
+                        },
+                        {
+                            "text": "1"
 
-                            },
-                            {
-                                "text": "$4.5"
+                        },
+                        {
+                            "text": "$4.5"
 
-                            }
+                        }
 
-                        ],
-                        "dividerAfter": true
-                    },
-                    {
-                        "cells": [
-                            {
-                                "text": 'Total'
-                            },
-                            {
-                                "text": "3"
+                    ],
+                    "dividerAfter": true
+                },
+                {
+                    "cells": [
+                        {
+                            "text": 'Total'
+                        },
+                        {
+                            "text": "3"
 
-                            },
-                            {
-                                "text": "$10.5"
+                        },
+                        {
+                            "text": "$10.5"
 
-                            }
+                        }
 
-                        ],
-                        "dividerAfter": true
-                    }
+                    ],
+                    "dividerAfter": true
+                }
             ];
 
             const cartFullfillmentResponse = {
@@ -412,8 +428,6 @@ app.post('/shops', function (request, response) {
 
             return response.send(cartFullfillmentResponse);
             break;
-
-
 
 
         default:
