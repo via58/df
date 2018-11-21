@@ -6,16 +6,19 @@
   "author": "vijay",
   "license": "ISC",
   "dependencies": {
-    "actions-on-google": "^2.4.1",
+    "actions-on-google": "^2.5.0",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "firebase": "^5.5.9",
-    "express": "^4.16.3",
     "fs": "0.0.1-security",
     "geolocator": "^2.1.3",
-    "heroku": "^7.16.5",
+    "heroku": "^7.18.9",
+    "ip": "^1.1.5",
+    "iplocation": "^5.0.1",
     "nodemon": "^1.18.4",
     "request": "^2.88.0",
     "where": "^0.3.0"
   }
 }
-
