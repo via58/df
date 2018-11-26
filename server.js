@@ -306,8 +306,7 @@ app.post('/shops', function (request, response) {
             }
             return response.send(navcard);
             break;
-
-         case "action_cart":
+        case "action_cart":
             var rowData = [
                 {
                     "cells": [
@@ -363,15 +362,15 @@ app.post('/shops', function (request, response) {
             ];
 
             const cartFullfillmentResponse = {
-                "fulfillmentText": "here the list of items in this shop",
+                "fulfillmentText": "here the list of items you Ordered",
                 "payload": {
                     "google": {
-                        "expectUserResponse": false,
+                        "expectUserResponse": true,
                         "richResponse": {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Please collect the Products at your nearest Speed Way Shop ..Happy Ordering ... ? "
+                                        "textToSpeech": "Would you like to proceed ? "
                                     }
                                 },
                                 {
@@ -393,14 +392,6 @@ app.post('/shops', function (request, response) {
                                             {
                                                 "header": "Total Price",
                                             }
-                                        ],
-                                        "buttons": [
-                                            {
-                                                "title": "Check out",
-                                                "openUrlAction": {
-                                                    "url": "https://github.com/actions-on-google"
-                                                }
-                                            }
                                         ]
                                     }
                                 }
@@ -421,17 +412,17 @@ app.post('/shops', function (request, response) {
             var quantity = request.body.queryResult.outputContexts[0].parameters.number;
 
             if (request.session.productName) {
-                request.session.productName = request.session.productName+ ","+productName ;
-                request.session.quantity =  request.session.quantity + ","+quantity ;
+                request.session.productName = request.session.productName + "," + productName;
+                request.session.quantity = request.session.quantity + "," + quantity;
             }
             else {
                 request.session.productName = productName;
                 request.session.quantity = quantity;
             }
 
-           break;
+            return response.send(request.session);
+            break;
         //   request.session.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-           
         case "action_finalCart":
 
             var sessionproducts = [];
@@ -516,7 +507,7 @@ app.post('/shops', function (request, response) {
 
             break;
 
-         
+
 
         default:
             /// Default case 
