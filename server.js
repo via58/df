@@ -362,7 +362,7 @@ app.post('/shops', function (request, response) {
             ];
 
             const cartFullfillmentResponse = {
-                "fulfillmentText": "Your Order has been Placed .. would you like like to Navigate to Shop ?",
+                "fulfillmentText": "here the list of items you Ordered",
                 "payload": {
                     "google": {
                         "expectUserResponse": true,
@@ -370,7 +370,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Your Order has been Placed .. would you like like to Navigate to Shop ?"
+                                        "textToSpeech": "Would you like to proceed ? "
                                     }
                                 },
                                 {
@@ -513,7 +513,88 @@ app.post('/shops', function (request, response) {
             /// Default case 
             break;
     } /// End of Switch Statement for ActionName
+if(request.body.queryResult.queryText=='Snacks'){
 
+
+    
+            var numberofobjects = Object.keys(inventory.Snacks).length;
+            var rowData = [];
+            for (var x = 0; x < numberofobjects; x++) {
+                rowData.push(
+                    {
+                        "cells": [
+                            {
+                                "text": inventory.Snacks[x].Productname
+                            },
+                            {
+                                "text": inventory.Snacks[x].Price
+
+                            },
+                            {
+                                "text": "1 Pkt" ///inventory.cooking_essentials[x].Quantity
+
+                            }
+                        ],
+                        "dividerAfter": true
+                    }
+                );
+            }
+            const SnacksCart = {
+                "fulfillmentText": "here the list of items in this shop",
+                "payload": {
+                    "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                            "items": [
+                                {
+                                    "simpleResponse": {
+                                        "textToSpeech": "please pick an item from this Menu"
+                                    }
+                                },
+                                {
+                                    "tableCard": {
+                                        "title": "List of Products ",
+                                        "subtitle": "",
+                                        "image": {
+                                            "url": inventory.Productcategories[1].url,
+                                            "accessibilityText": "Products"
+                                        },
+                                        "rows": rowData,
+                                        "columnProperties": [
+                                            {
+                                                "header": "Product Name",
+                                            },
+                                            {
+                                                "header": "Price",
+                                            },
+                                            {
+                                                "header": "Quantity",
+                                            }
+                                        ],
+                                        "buttons": [
+                                            {
+                                                "title": "Check out",
+                                                "openUrlAction": {
+                                                    "url": "https://github.com/actions-on-google"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "userStorage": "{\"data\":{}}"
+                    }
+                }
+
+            }
+
+            return response.send(SnacksCart);
+
+
+
+
+}
 }); /// End of POST method
 
 app.listen(listeningPort, function () {
