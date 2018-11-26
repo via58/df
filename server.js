@@ -362,7 +362,7 @@ app.post('/shops', function (request, response) {
             ];
 
             const cartFullfillmentResponse = {
-                "fulfillmentText": "here the list of items you Ordered",
+                "fulfillmentText": "Your Order has been Placed .. would you like like to Navigate to Shop ?",
                 "payload": {
                     "google": {
                         "expectUserResponse": true,
@@ -370,7 +370,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Would you like to proceed ? "
+                                        "textToSpeech": "Your Order has been Placed .. would you like like to Navigate to Shop ?"
                                     }
                                 },
                                 {
