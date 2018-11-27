@@ -58,7 +58,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "I found few shops near you"
+                                        "textToSpeech": "I found few shops near NewYork Stock Exchange"
                                     }
                                 }
                             ]
@@ -370,7 +370,7 @@ app.post('/shops', function (request, response) {
                             "items": [
                                 {
                                     "simpleResponse": {
-                                        "textToSpeech": "Would you like to proceed ? "
+                                        "textToSpeech": "Your Order has been Placed .. would you like to Navigate to Shop  ? "
                                     }
                                 },
                                 {
